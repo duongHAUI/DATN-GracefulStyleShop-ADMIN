@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      date: this.dateValue,
+      date: this.modelValue,
       options: {
         format: "DD/MM/YYYY",
         useCurrent: false,
@@ -64,7 +64,7 @@ export default {
     };
   },
   props: {
-    dateValue: {
+    modelValue: {
       type: Date,
     },
     isRequired: {
@@ -91,7 +91,7 @@ export default {
      * Author : NVDuong (05/1/2023)
      */
     changeDateValue(date) {
-      this.$emit("change", date, this.name);
+      this.$emit("update:modelValue", date);
     },
     /**
      * Check vaidate theo rules truyen vao
@@ -102,7 +102,7 @@ export default {
         var msgErrorInput = common.inputValidation(
           this.rules,
           this.name,
-          this.dateValue
+          this.modelValue
         );
         this.$emit("message-error-input", this.name, msgErrorInput);
       }
@@ -149,13 +149,6 @@ export default {
     },
   },
   watch: {
-    /**
-     * Truyền dateValue thay đổi
-     * Author : NVDuong (05/1/2023)
-     */
-    dateValue: function () {
-      this.date = this.dateValue;
-    },
   },
   computed: {
     /**
@@ -163,7 +156,7 @@ export default {
      * Author : NVDuong (05/1/2023)
      */
     formatDate() {
-      return common.formatDate(this.dateValue);
+      return common.formatDate(this.modelValue);
     },
   },
 };

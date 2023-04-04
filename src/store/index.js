@@ -5,12 +5,13 @@ import {reactive} from 'vue'
  * Author : NVDuong (10/1/2023)
  */
 const state = reactive({
-  form : 1,
+  form : 0,
   titleForm : "Màu",
   isSaveForm : false,
   nameTable: "Color",
   idModel : "",
   isShowForm : false,
+  isLoadding : false,
   /**
    * Mảng chứa các toast message
    * Author : NVDuong (10/1/2023)
@@ -33,6 +34,12 @@ const state = reactive({
      clearTimeout();
    }, 4000);
   },
+  isMask(){
+    this.isLoadding = true;
+  },
+  unMask(){
+    this.isLoadding = false;
+  }
 });
 
 export default {

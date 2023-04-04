@@ -20,6 +20,21 @@
           :ref="$state.nameTable"
           v-model="model"
         />
+        <FormBrand
+          v-if="$state.form == formNameEnum.brand"
+          :ref="$state.nameTable"
+          v-model="model"
+        />
+        <FormType
+          v-if="$state.form == formNameEnum.type"
+          :ref="$state.nameTable"
+          v-model="model"
+        />
+        <FormProduct
+          v-if="$state.form == formNameEnum.product"
+          :ref="$state.nameTable"
+          v-model="model"
+        />
       </div>
       <div class="m__e-form-footer-btn">
         <div class="m__e-form-btn__left" @click="destroyForm()">
@@ -64,19 +79,26 @@ import FormColor from "@/views/color/FormColor.vue";
 import FormSize from "@/views/size/FormSize.vue";
 import enumMISA from "@/assets/js/enum";
 import baseApi from "@/api/baseApi";
+import FormBrand from '@/views/brand/FormBrand.vue';
+import FormProduct from '@/views/product/FormProduct.vue';
+import FormType from '@/views/type/FormType.vue';
 export default {
   name: "MFormPopup",
   components: {
     MButton,
     FormColor,
     FormSize,
+    FormBrand,
+    FormProduct,
+    FormType
   },
   props: {
     submitForm: String,
     formData: Object,
     isShow: Boolean,
   },
-  created() {},
+  created() {
+  },
   data() {
     return {
       formNameEnum: enumMISA.formName,
@@ -87,16 +109,10 @@ export default {
   },
   methods: {
     async getInfo() {
-      // eslint-disable-next-line no-debugger
-      debugger;
       const res = await this.baseApi.getById(this.$state.idModel);
-      // eslint-disable-next-line no-debugger
-      debugger;
       this.model = res;
     },
     async onSubmitFormEmployee(method) {
-      // eslint-disable-next-line no-debugger
-      debugger;
       this.isLoading = true;
       if (method) {
         console.log(method);
@@ -111,10 +127,11 @@ export default {
         : await this.baseApi.create(this.model); // Gọi api Create
 
       if (method == enumMISA.enumActionButtonForm.addAndSave) {
-        this.model = {};
         this.$state.idModel = "";
       } else this.$state.isShowForm = false;
 
+      this.model = {};
+      this.$state.isSaveForm = true;
       this.isLoading = true;
     },
     /**
@@ -143,13 +160,14 @@ export default {
   watch: {
     "$state.isShowForm": async function () {
       if (this.$state.isShowForm) {
-        // eslint-disable-next-line no-debugger
-        debugger;
         if (this.$state.idModel) {
           await this.getInfo();
         }
       }
     },
+    "$state.nameTable" : function(){
+      this.baseApi = new baseApi(this.$state.nameTable);
+    }
   },
 };
 </script>

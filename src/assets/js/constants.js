@@ -7,85 +7,32 @@ const constants = {
     {
       text: "Sản phẩm",
       classIcon: "icon-overview",
-      path : "/producs"
+      path : "/products",
+      name:"Product"
     },
     {
       text: "Màu",
       classIcon: "icon-cash",
-      path : "/colors"
-    },
-
-    {
-      text: "Tiền gửi",
-      classIcon: "icon-deposits",
-      path : "/sizes"
-    },
-
-    {
-      text: "Mua hàng",
-      classIcon: "icon-purchase",
-      path : "/app"
-    },
-
-    {
-      text: "Bán hàng",
-      classIcon: "icon-sell",
-      path : "/app"
-    },
-
-    {
-      text: "Quản lý hóa đơn",
-      classIcon: "icon-bill",
-      path : "/app"
-    },
-
-    {
-      text: "Kho",
-      classIcon: "icon-contain",
-      path : "/app"
-    },
-
-    {
-      text: "Công cụ công dụng",
-      classIcon: "icon-tools",
-      path : "/app"
-    },
-
-    {
-      text: "Tài sản cố định",
-      classIcon: "icon-asset",
-      path : "/app"
-    },
-
-    {
-      text: "Thuế",
-      classIcon: "icon-tax",
-      path : "/app"
+      path : "/colors",
+      name:"Color"
     },
     {
-      text: "Giá thành",
-      classIcon: "icon-price",
-      path : "/app"
+      text: "Kích cỡ",
+      classIcon: "icon-cash",
+      path : "/sizes",
+      name:"Size"
     },
     {
-      text: "Tổng hợp",
-      classIcon: "icon-total",
-      path : "/app"
+      text: "Thương hiệu",
+      classIcon: "icon-cash",
+      path : "/brands",
+      name:"Brand"
     },
     {
-      text: "Ngân sách",
-      classIcon: "icon-budget",
-      path : "/app"
-    },
-    {
-      text: "Báo cáo",
-      classIcon: "icon-report",
-      path : "/app"
-    },
-    {
-      text: "Phân tích tài chính",
-      classIcon: "icon-analysis",
-      path : "/app"
+      text: "Thể loại",
+      classIcon: "icon-cash",
+      path : "/types",
+      name:"Type"
     },
   ],
   /**

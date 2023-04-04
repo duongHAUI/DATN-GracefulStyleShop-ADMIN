@@ -118,6 +118,21 @@ const enumMISA = {
   formName : {
     color : 1,
     size : 2,
+    brand : 3,
+    customer : 4,
+    image : 5,
+    cart:6,
+    admin:7,
+    addressreceive:8,
+    order : 9,
+    orderdetail : 10,
+    product : 11,
+    productvariant  :12,
+    shipment  :13,
+    supplier  :14,
+    supply : 15,
+    type : 16,
+    vote : 18
   }
 };
 export default enumMISA;

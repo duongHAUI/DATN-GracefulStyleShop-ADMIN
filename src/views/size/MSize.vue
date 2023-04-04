@@ -5,10 +5,10 @@
 </template>
 <script>
 import MGrid from '@/components/grid/MGrid.vue';
-import ColorConfig from "@/views/color/ColorConfig.js";
+import SizeConfig from "@/views/size/SizeConfig.js";
 import mixinPage from "@/mixins/mixinPage.js";
 export default {
-    name:"MColor",
+    name:"MSize",
     mixins:[mixinPage],
     components:{
         MGrid
@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             // eslint-disable-next-line vue/no-reserved-keys
-            _data : new ColorConfig()
+            _data : new SizeConfig()
         }
     },
 }

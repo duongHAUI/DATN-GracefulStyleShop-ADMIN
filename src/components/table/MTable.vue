@@ -94,12 +94,10 @@
       </div>
     </template>
   </MPopUpWarn>
-  <MLoadding :isFixed="true" :isLoadding="isLoadding" />
 </template>
 <script>
 import MButton from "../button/MButton.vue";
 import MCheckBox from "../checkbox/MCheckBox.vue";
-import MLoadding from '../loadding/MLoadding.vue';
 import MPopUpWarn from "../pop-up/MPopUpWarn.vue";
 import MTableColumn from "../table-column/MTableColumn.vue";
 export default {
@@ -110,7 +108,6 @@ export default {
     MButton,
     MTableColumn,
     MCheckBox,
-    MLoadding
   },
   props: {
     columns: Object,
@@ -244,8 +241,6 @@ export default {
 
     },
     updateRows(id){
-      // eslint-disable-next-line no-debugger
-      debugger
       this.$state.idModel = id;
       this.$state.isShowForm = true;
     }
@@ -262,5 +257,4 @@ export default {
 </script>
 
 <style scoped>
-@import url(./m-table.css);
 </style>

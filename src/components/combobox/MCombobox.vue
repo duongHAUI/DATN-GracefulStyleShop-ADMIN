@@ -114,6 +114,8 @@ export default {
     };
   },
   created() {
+    // eslint-disable-next-line no-debugger
+    debugger
     // Hiển thị mặc định
     this.setItemSelected();
     // Xử lý nếu list hiện ở trên

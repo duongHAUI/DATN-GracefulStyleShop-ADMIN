@@ -23,7 +23,7 @@
         >
           <li
             class="m-menu__list-item"
-            :class="itemActive == index ? 'active' : ''"
+            :class="$state.nameTable == item.name ? 'active' : ''"
             :key="index"
             @click="activeItem(index)"
           >

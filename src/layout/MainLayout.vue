@@ -6,6 +6,7 @@
       <div class="m-main-content">
           <router-view />
           <MFormDialog :isShow="$state.isShowForm" />
+          <MLoadding :isLoadding="$state.isLoadding" />
       </div>
     </div>
   <MToastList  />
@@ -15,12 +16,14 @@
 import TheHeader from '@/components/header/TheHeader.vue'
 import TheSidebar from '@/components/slidebar/TheSidebar.vue';
 import MFormDialog from '@/components/form-dialog/MFormDialog.vue';
+import MLoadding from '@/components/loadding/MLoadding.vue';
 export default {
   name: "MainLayout",
   components: {
     TheHeader,
     TheSidebar,
-    MFormDialog
+    MFormDialog,
+    MLoadding
   },
 };
 </script>

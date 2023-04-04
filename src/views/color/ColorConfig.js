@@ -1,8 +1,9 @@
-
+import enumMISA from "@/assets/js/enum";
 class colorConfig {
     constructor() {
         this.tableName = 'Color';
-        this.titleForm = "Thêm màu";
+        this.titleForm = "Thêm";
+        this.formName = enumMISA.formName.color;
         this.search = false;
         this.columns = [
             {

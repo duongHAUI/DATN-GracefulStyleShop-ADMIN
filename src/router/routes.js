@@ -1,7 +1,9 @@
-import EmployeeList from "@/views/employee/employee-list/EmployeeList.vue";
 import MError from "@/views/MError.vue";
-import EmployeeImport from "@/views/employee/employee-import/EmployeeImport.vue";
 import MColor from "@/views/color/MColor.vue";
+import MSize from "@/views/size/MSize.vue";
+import MBrand from "@/views/brand/MBrand.vue";
+import MType from "@/views/type/MType.vue";
+import MProduct from "@/views/product/MProduct.vue";
 
 /**
  * Các routes của page
@@ -9,20 +11,24 @@ import MColor from "@/views/color/MColor.vue";
  */
 const routes = [
   {
-    path: "",
-    component: EmployeeList,
+    path: "/products",
+    component: MProduct,
   },
   {
     path: "/colors",
     component: MColor,
   },
   {
-    path: "/app/employee",
-    component: EmployeeList,
+    path: "/sizes",
+    component: MSize,
   },
   {
-    path: "/app/import-employee",
-    component: EmployeeImport,
+    path: "/brands",
+    component: MBrand,
+  },
+  {
+    path: "/types",
+    component: MType,
   },
   {
     path: "/:pathMatch(.*)*",

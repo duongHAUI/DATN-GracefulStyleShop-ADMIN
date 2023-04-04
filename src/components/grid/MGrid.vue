@@ -145,13 +145,15 @@ export default {
      */
     async getData() {
       try {
-        this.isLoadding = true;
+        // eslint-disable-next-line no-debugger
+        debugger
+        this.$state.isMask();
         const res = await this.baseApi.getByFilter(this.params);
         this.rows = res.Data;
         this.totalRecord = res.Total;
-        this.isLoadding = false;
+        this.$state.unMask();
       } catch (error) {
-        this.isLoadding = false;
+        this.$state.unMask();
         console.log("Lỗi lấy dữ liệu", error);
       }
     },
@@ -160,7 +162,7 @@ export default {
      */
     async refresh() {
       try {
-        this.isLoadding = true;
+        this.$state.isMask();
         // Xét thời gian tìm kiếm 0,5s
         setTimeout(async () => {
           this.pageNumber = 1;
@@ -178,6 +180,7 @@ export default {
         if (this.timeout) clearTimeout(this.timeout);
         // Xét thời gian tìm kiếm 0,5s
         this.timeout = setTimeout(async () => {
+          this.$state.isMask();
           this.textSearch = event.target.value || "";
           this.pageNumber = 1;
           await this.getData();
@@ -191,7 +194,7 @@ export default {
      * Author : NVDuong (06/1/2023)
      */
     async eventHandlePaginate(pageNumber) {
-      this.isLoadding = true;
+      this.$state.isMask();
       this.pageNumber = pageNumber;
       setTimeout(async () => {
         await this.getData();
@@ -203,11 +206,12 @@ export default {
     async deleteRowTable(ids) {
       try {
         this.isPopUpDelete = false;
-        this.isLoadding = true;
+        this.$state.isMask();
         await this.baseApi.remove(ids);
         this.rowsSelected = [];
         this.refresh();
       } catch (error) {
+        this.$state.unMask();
         console.log(error);
       }
     },
@@ -244,11 +248,13 @@ export default {
       }
     },
     '$state.isShowForm' : function(){
-      this.refresh();
+      if(this.$state.isSaveForm){
+        this.refresh();
+        this.$state.isSaveForm = false;
+      }
     }
   },
 };
 </script>
 <style scoped>
-@import url(./m-grid.css);
 </style>
