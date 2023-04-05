@@ -72,6 +72,12 @@ img {
   height: 100%;
   width: 100%;
 }
+.m-t-16{
+  margin-top: 16px;
+}
+.m-t-20{
+  margin-top: 20px;
+}
 li {
   list-style-type: none;
 }

@@ -1,6 +1,4 @@
-.w-700{
-    width: 700px !important;
-}
+
 .m__e-form-header{
     display: flex;
     align-items: center;
@@ -79,4 +77,8 @@
 }
 .warning__validate-btn  button:not():nth-last-child(1){
     margin-right: 8px;
+}
+.form__row{
+    display: flex;
+    justify-content: space-between;
 }

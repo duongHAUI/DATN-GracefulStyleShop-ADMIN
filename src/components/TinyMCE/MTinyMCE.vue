@@ -1,42 +1,50 @@
 <template>
   <div>
-    <textarea ref="editor"></textarea>
+    <div class="editor">
+    <Editor
+      v-model="output"
+      :config="config"
+      :api-key="key"
+      :initial-value="modelValue"
+      ref="ref"
+    />
+  </div>
   </div>
 </template>
 
 <script>
-import tinymce from 'tinymce/tinymce';
-
-import 'tinymce/themes/silver/theme';
-import 'tinymce/plugins/link';
-import 'tinymce/plugins/image';
-import 'tinymce/plugins/lists';
-
+import Editor from '@tinymce/tinymce-vue'
 export default {
   name: 'MTinyMCE',
   emits:["update:modelValue"],
+  components:{
+    Editor
+  },
   props: {
     modelValue: {
       type: String,
       required: true,
     },
+    value:String
   },
-  mounted() {
-    tinymce.init({
-      selector: this.$refs.editor,
-      plugins: ['link', 'image', 'lists'],
-      toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
-      skin_url: '/skins/ui/oxide',
-      content_css: '/skins/content/default/content.css',
-      width: '100%',
-      height: '300px',
-      setup: editor => {
-        editor.on('change', () => {
-          const content = editor.getContent();
-          this.$emit('update:modelValue', content);
-        });
-      },
-    });
+  created(){
+    
   },
+  data() {
+    return {
+      key: "72wrbxbd7bto5lo710sxfsfq8z9cfn5n70e3oenk7nbrcjmm",
+      output : ""
+    }
+  },
+  methods:{
+  },
+  watch:{
+    output:function(){
+      this.$emit("update:modelValue", this.output);
+    },
+    modelValue:function(){
+      this.output = this.modelValue;
+    }
+  }
 };
 </script>

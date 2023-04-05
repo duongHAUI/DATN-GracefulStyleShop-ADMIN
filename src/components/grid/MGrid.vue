@@ -145,8 +145,6 @@ export default {
      */
     async getData() {
       try {
-        // eslint-disable-next-line no-debugger
-        debugger
         this.$state.isMask();
         const res = await this.baseApi.getByFilter(this.params);
         this.rows = res.Data;

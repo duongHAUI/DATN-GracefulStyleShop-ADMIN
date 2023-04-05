@@ -114,8 +114,6 @@ export default {
     };
   },
   created() {
-    // eslint-disable-next-line no-debugger
-    debugger
     // Hiển thị mặc định
     this.setItemSelected();
     // Xử lý nếu list hiện ở trên
@@ -155,6 +153,8 @@ export default {
      * Author : NVDuong (12/1/2023)
      */
     setItemSelected() {
+      // eslint-disable-next-line no-debugger
+      debugger
       var item = this.data.find((x) => x[this.propValue] == this.modelValue);
       if (item) {
         this.textSelected = item[this.propName];
@@ -288,6 +288,9 @@ export default {
       } else {
         this.textSelected = "";
       }
+    },
+    data(){
+      this.setItemSelected();
     },
     /**
      * Validate nếu text không tồn tại thì k hợp lệ
