@@ -3,7 +3,7 @@ class typeConfig {
     constructor() {
         this.tableName = 'Type';
         this.formName = enumMISA.formName.type;
-        this.titleForm = "Thêm";
+        this.titleForm = "Thể loại";
         this.search = false;
         this.columns = [
             {

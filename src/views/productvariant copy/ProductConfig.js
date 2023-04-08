@@ -2,9 +2,8 @@ import enumMISA from "@/assets/js/enum";
 class productConfig {
     constructor() {
         this.tableName = 'Product';
-        this.titleForm = "Sản phẩm";
+        this.titleForm = "Thêm";
         this.formName = enumMISA.formName.product;
-        this.level = 1;
         this.columns = [
             {
                 name : "ProductCode",

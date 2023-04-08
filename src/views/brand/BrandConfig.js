@@ -3,7 +3,7 @@ class brandConfig {
     constructor() {
         this.tableName = 'Brand';
         this.formName = enumMISA.formName.brand;
-        this.titleForm = "Thêm";
+        this.titleForm = "Nhãn hiệu";
         this.search = false;
         this.columns = [
             {

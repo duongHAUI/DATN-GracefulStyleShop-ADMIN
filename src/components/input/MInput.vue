@@ -98,7 +98,7 @@ export default {
      */
     checkValidate(){
       if(this.rules.length > 0){
-        var msgErrorInput = common.inputValidation(this.rules,this.name,this.modelValue?.trim());
+        var msgErrorInput = common.inputValidation(this.rules,this.name,this.modelValue);
         this.$emit("message-error-input",this.name, msgErrorInput);
       }
     },

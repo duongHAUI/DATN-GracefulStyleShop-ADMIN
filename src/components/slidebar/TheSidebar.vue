@@ -7,10 +7,10 @@
         :class="toggleSidebar ? 'icon-dots' : 'icon-bar-white'"
       ></div>
       <div class="sidebar__header-brand__logo">
-        <img
+        <!-- <img
           src="../../assets/img/Logo_Module_TiengViet_White.66947422.svg"
           alt="logo"
-        />
+        /> -->
       </div>
     </div>
     <div class="m-menu">

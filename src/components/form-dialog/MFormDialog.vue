@@ -35,6 +35,11 @@
           :ref="$state.nameTable"
           v-model="model"
         />
+        <FormProductVariant
+          v-if="$state.form == formNameEnum.productvariant"
+          :ref="$state.nameTable"
+          v-model="model"
+        />
       </div>
       <div class="m__e-form-footer-btn">
         <div class="m__e-form-btn__left" @click="destroyForm()">
@@ -79,9 +84,11 @@ import FormColor from "@/views/color/FormColor.vue";
 import FormSize from "@/views/size/FormSize.vue";
 import enumMISA from "@/assets/js/enum";
 import baseApi from "@/api/baseApi";
-import FormBrand from '@/views/brand/FormBrand.vue';
-import FormProduct from '@/views/product/FormProduct.vue';
-import FormType from '@/views/type/FormType.vue';
+import fileApi from "@/api/fileApi";
+import FormBrand from "@/views/brand/FormBrand.vue";
+import FormProduct from "@/views/product/FormProduct.vue";
+import FormProductVariant from "@/views/productvariant/FormProductVariant.vue";
+import FormType from "@/views/type/FormType.vue";
 export default {
   name: "MFormPopup",
   components: {
@@ -90,15 +97,15 @@ export default {
     FormSize,
     FormBrand,
     FormProduct,
-    FormType
+    FormType,
+    FormProductVariant,
   },
   props: {
     submitForm: String,
     formData: Object,
     isShow: Boolean,
   },
-  created() {
-  },
+  created() {},
   data() {
     return {
       formNameEnum: enumMISA.formName,
@@ -113,6 +120,8 @@ export default {
       this.model = res;
     },
     async onSubmitFormEmployee(method) {
+      // eslint-disable-next-line no-debugger
+      debugger
       this.isLoading = true;
       if (method) {
         console.log(method);
@@ -122,15 +131,19 @@ export default {
       }
 
       // kiểm tra là thêm hay sửa
-      this.$state.idModel
+      var res = this.$state.idModel
         ? await this.baseApi.update(this.$state.idModel, this.model) // Gọi api Update
         : await this.baseApi.create(this.model); // Gọi api Create
 
-      if (method == enumMISA.enumActionButtonForm.addAndSave) {
-        this.$state.idModel = "";
-      } else this.$state.isShowForm = false;
+      // Xử lý custom
+      await this.insertOrUpdateCustom(res.Data);
+
+      if (method != enumMISA.enumActionButtonForm.addAndSave) {
+        this.$state.isShowForm = false;
+      } 
 
       this.model = {};
+      this.$state.idModel = "";
       this.$state.isSaveForm = true;
       this.isLoading = true;
     },
@@ -142,8 +155,7 @@ export default {
       for (const property in this.$refs[this.$state.nameTable].$refs) {
         this.$refs[this.$state.nameTable].$refs[property]?.checkValidate();
       }
-      for (const property in this.$refs[this.$state.nameTable].$refs
-        .errorMsgObject) {
+      for (const property in this.$refs[this.$state.nameTable].errorMsgObject) {
         if (this.$refs[this.$state.nameTable].errorMsgObject[property]) {
           this.$refs[this.$state.nameTable].$refs[property].onFocus();
           return false;
@@ -152,9 +164,33 @@ export default {
       return true;
     },
     closeForm() {
+      // eslint-disable-next-line no-debugger
+      debugger
       this.$state.isShowForm = false;
       this.$state.idModel = "";
       this.model = {};
+    },
+
+    async insertOrUpdateCustom(id) {
+      try {
+        if (this.$state.form == this.formNameEnum.product) {
+          let formData = new FormData();
+          for (let index = 0; index < this.model.Images.files.length; index++) {
+            formData.append("Files[]", this.model.Images.files[index]);
+          }
+          formData.append("Images", [
+            "c98155d9-2fe9-4a03-bda5-e44c9d78be5c",
+            "2a3d331e-a8f3-47ce-b09d-b169231e2f75",
+          ]);
+
+          formData.append("ObjectId", id);
+          const api = new fileApi();
+          await api.insertImages(formData);
+          this.model.Images = null;
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
   watch: {
@@ -165,9 +201,9 @@ export default {
         }
       }
     },
-    "$state.nameTable" : function(){
+    "$state.nameTable": function () {
       this.baseApi = new baseApi(this.$state.nameTable);
-    }
+    },
   },
 };
 </script>

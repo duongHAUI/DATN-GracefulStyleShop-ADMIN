@@ -3,7 +3,7 @@
     <div class="m-main-content-title">{{data.titleForm}}</div>
     <div class="m-main-content-btn-add">
       <div @click="onShowForm">
-        <MButton>{{ data.titleForm }}</MButton>
+        <MButton>Thêm</MButton>
       </div>
       <div
         class="m-main-content-btn-import"
@@ -21,10 +21,13 @@
   <div class="m-main-content-table">
     <div class="content-table__btn">
       <div class="content-table-btn__left">
+        
+        <div class="flex-center" >
+          <FolderRoutes />
         <div
           v-show="isShowActionprocessMutiple"
           class="content-table-btn__left-block"
-        >
+        > 
           <div class="series-selected">
             Đã chọn <span>{{ rowsSelected.length }}</span>
           </div>
@@ -32,6 +35,7 @@
           <div class="action__delete-mutiple" @click="isPopUpDelete = true">
             Xóa
           </div>
+        </div>
         </div>
       </div>
       <div class="content-table__btn-right">
@@ -107,6 +111,7 @@ import MPaginate from "../pagination/MPaginate.vue";
 import MTable from "../table/MTable.vue";
 import baseApi from "@/api/baseApi";
 import MPopUpWarn from "../pop-up/MPopUpWarn.vue";
+import FolderRoutes from '../folder/FolderRoutes.vue';
 export default {
   name: "MGrid",
   components: {
@@ -116,6 +121,7 @@ export default {
     MPaginate,
     MCombobox,
     MPopUpWarn,
+    FolderRoutes
   },
   props: {
     data: Object,
@@ -214,6 +220,8 @@ export default {
       }
     },
     onShowForm(){
+      // eslint-disable-next-line no-debugger
+      debugger
       this.$state.isShowForm = true;
     }
   },
@@ -227,6 +235,7 @@ export default {
         pageSize: this.pageSize,
         pageNumber: this.pageNumber,
         textSearch: this.textSearch,
+        parentId : this.$route.params.id
       };
     },
     /**
@@ -255,4 +264,8 @@ export default {
 };
 </script>
 <style scoped>
+.flex-center{
+  display: flex;
+  align-items: center;
+}
 </style>

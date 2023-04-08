@@ -78,7 +78,7 @@
   .content-table-btn__left-block{
     display: flex;
     align-items: center;
-  
+    margin-left: 16px;
   }
   .content-table__btn-right {
     display: flex;

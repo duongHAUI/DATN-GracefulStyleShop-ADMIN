@@ -43,7 +43,7 @@
             class="m__e-table-col-function-btn"
             ref="btnFunctionMenu"
           >
-            <span>Sửa</span>
+            <span @click.prevent="actionRow(row[`${tableName}Id`])">{{this.$state.level ? "Thêm" : "Sửa"}}</span>
             <div
               class="m__e-table-col-icon"
               v-click-outside="clickOutSideFunction"
@@ -100,6 +100,7 @@ import MButton from "../button/MButton.vue";
 import MCheckBox from "../checkbox/MCheckBox.vue";
 import MPopUpWarn from "../pop-up/MPopUpWarn.vue";
 import MTableColumn from "../table-column/MTableColumn.vue";
+import enumMISA from "@/assets/js/enum";
 export default {
   name: "MTable",
   emits:["update:modelValue","delete"],
@@ -126,7 +127,7 @@ export default {
       functionTop: 0, // Tọa dộ top của list chức năng
       functionLeft: 0, // Tọa dộ left của list chức năng
       isPopUpDelete : false,
-      checkedAll : false
+      checkedAll : false,
     };
   },
   methods: {
@@ -243,6 +244,13 @@ export default {
     updateRows(id){
       this.$state.idModel = id;
       this.$state.isShowForm = true;
+    },
+    actionRow(id){
+      if(this.$state.form == enumMISA.formName.product){
+        this.$router.push("/products/"+id);
+      }else{
+        this.updateRows(id);
+      }
     }
   },
   watch:{

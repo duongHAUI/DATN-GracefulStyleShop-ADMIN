@@ -3,7 +3,7 @@ class sizeConfig {
     constructor() {
         this.tableName = 'Size';
         this.formName = enumMISA.formName.size;
-        this.titleForm = "Thêm";
+        this.titleForm = "Kích cỡ";
         this.search = false;
         this.columns = [
             {

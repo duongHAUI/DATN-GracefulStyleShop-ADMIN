@@ -10,6 +10,9 @@ const state = reactive({
   isSaveForm : false,
   nameTable: "Color",
   idModel : "",
+  level : 0,
+  parentName :"",
+  parentPath  : "",
   isShowForm : false,
   isLoadding : false,
   /**

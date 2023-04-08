@@ -153,8 +153,6 @@ export default {
      * Author : NVDuong (12/1/2023)
      */
     setItemSelected() {
-      // eslint-disable-next-line no-debugger
-      debugger
       var item = this.data.find((x) => x[this.propValue] == this.modelValue);
       if (item) {
         this.textSelected = item[this.propName];

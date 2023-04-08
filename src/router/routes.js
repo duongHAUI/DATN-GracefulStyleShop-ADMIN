@@ -3,6 +3,7 @@ import MColor from "@/views/color/MColor.vue";
 import MSize from "@/views/size/MSize.vue";
 import MBrand from "@/views/brand/MBrand.vue";
 import MType from "@/views/type/MType.vue";
+import MProductVariant from "@/views/productvariant/MProductVariant.vue";
 import MProduct from "@/views/product/MProduct.vue";
 
 /**
@@ -13,6 +14,10 @@ const routes = [
   {
     path: "/products",
     component: MProduct,
+  },
+  {
+    path: "/products/:id",
+    component: MProductVariant,
   },
   {
     path: "/colors",

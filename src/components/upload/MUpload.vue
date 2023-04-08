@@ -35,7 +35,8 @@ export default {
   },
   components: {},
   created(){
-    this.images = this.modelValue;
+    this.images = this.modelValue ? this.modelValue : [] ;
+    this.files = Array(!this.modelValue?.length ? 0 : this.modelValue?.length).fill(false);
   },
   data() {
     return {
@@ -50,38 +51,42 @@ export default {
     async handleDropFile(event) {
       event.preventDefault();
       let files = event.dataTransfer;
-      for (let index = 0; index < files.length; index++) {
-        let url = URL.createObjectURL(files[index]);
-        this.images.push({
-          url: url,
-          name: files[index].name,
-        });
-      }
-      this.files.push(files);
+      this.processFileSelect(files);
     },
     /**
      * Lấy file chọn input
      */
     async handleSelectFile(event) {
       const files = event.target.files;
-      // eslint-disable-next-line no-debugger
-      debugger;
+      this.processFileSelect(files);
+      this.$refs.uploadFile.value = null;
+    },
+    processFileSelect(files){
       for (let index = 0; index < files.length; index++) {
         let url = URL.createObjectURL(files[index]);
         this.images.push({
           url: url,
           name: files[index].name,
+          local: true
         });
+        this.files.push(files[index]);
       }
-      this.files.push(files);
-      this.$refs.uploadFile.value = null;
+      this.updateModelValue();
+    },
+    updateModelValue(){
+      const data = {
+        files : this.files,
+        images : this.images.filter(x => x.local !== true)
+      }
+      this.$emit("update:modelValue",data);
     },
     /**
      * Xóa ảnh
      */
     closeImage(index){
-        this.files.splice(index, 1); 
-        this.images.splice(index, 1); 
+      this.files.splice(index, 1); 
+      this.images.splice(index, 1); 
+      this.updateModelValue();
     }
   },
 };

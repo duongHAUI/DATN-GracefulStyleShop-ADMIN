@@ -132,7 +132,7 @@ const enumMISA = {
     supplier  :14,
     supply : 15,
     type : 16,
-    vote : 18
+    vote : 18,
   }
 };
 export default enumMISA;
