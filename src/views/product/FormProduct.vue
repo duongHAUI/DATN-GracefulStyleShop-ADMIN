@@ -120,6 +120,8 @@ export default {
   created: async function () {
     this.listBrand = await this.getDataCombobox("Brand");
     this.listType = await this.getDataCombobox("Type");
+    // eslint-disable-next-line no-debugger
+    debugger
   },
   props: {
     modelValue: Object,
