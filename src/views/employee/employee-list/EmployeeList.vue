@@ -157,7 +157,7 @@ export default {
   created() {
     /**
      * Lấy dữ liệu khi bắt đầu vào trang
-     * Author : NVDuong (06/1/2023)
+     
      */
     this.getData();
   },
@@ -168,7 +168,7 @@ export default {
   methods: {
     /**
      * Hàm xử lý phím tắt
-     * Author : NVDuong (06/1/2023)
+     
      */
     onKeyDown(event) {
       // Tắt mở form (Shift + n)
@@ -184,7 +184,7 @@ export default {
     },
     /**
      * Hàm lấy danh sách nhân viên
-     * Author : NVDuong (06/1/2023)
+     
      */
     async getData() {
       try {
@@ -200,7 +200,7 @@ export default {
     },
     /**
      * Hàm search nhân viên
-     * Author : NVDuong (06/1/2023)
+     
      */
     async searchData(event) {
       try {
@@ -217,7 +217,7 @@ export default {
     },
     /**
      * Refresh lại dữ liệu
-     * Author : NVDuong (06/1/2023)
+     
      */
     async refresh() {
       try {
@@ -233,7 +233,7 @@ export default {
     },
     /**
      * Hàm check nếu sửa thì refresh lại dữ liệu
-     * Author : NVDuong (06/1/2023)
+     
      */
     closeFormEmployee() {
       try {
@@ -245,7 +245,7 @@ export default {
     },
     /**
      * Hiện thị form thêm hoặc sửa
-     * Author : NVDuong (06/1/2023)
+     
      */
     showEmployeeInforForm(employeeId, action) {
       this.employeeId = employeeId;
@@ -255,7 +255,7 @@ export default {
 
     /**
      * Hiện thị form thêm nhân viên
-     * Author : NVDuong (06/1/2023)
+     
      */
     onShowForm() {
       this.action = enumMISA.enumActionForm.insert;
@@ -263,7 +263,7 @@ export default {
     },
     /**
      * Bắt sự kiện thay đổi trang
-     * Author : NVDuong (06/1/2023)
+     
      */
     async eventHandlePaginate(pageNumber) {
       this.isLoadding = true;
@@ -274,7 +274,7 @@ export default {
     },
     /**
      * Bắt sự kiện thay đổi trang
-     * Author : NVDuong (06/1/2023)
+     
      */
     resetEmployeeAction(item, action) {
       var me = this;
@@ -324,7 +324,7 @@ export default {
     },
     /**
      * Export nhân viên
-     * Author : NVDuong (06/1/2023)
+     
      */
     async exportEmployee() {
       try {
@@ -341,21 +341,21 @@ export default {
     },
     /**
      * Hiện thi thông báo xóa
-     * Author : NVDuong (06/1/2023)
+     
      */
     confirmDeleteEmployee() {
       this.isPopUpDelete = true;
     },
     /**
      * Bỏ chọn tất cả checkbox
-     * Author : NVDuong (06/1/2023)
+     
      */
     uncheckedAll() {
       this.listRowSelected = [];
     },
     /**
      * Xử lý xóa nhiều nhân viên
-     * Author : NVDuong (06/1/2023)
+     
      */
     async deleteEmployees() {
       try {
@@ -398,7 +398,7 @@ export default {
   computed: {
     /**
      * Get param filter data
-     * Author : NVDuong (06/1/2023)
+     
      */
     params() {
       return {
@@ -409,7 +409,7 @@ export default {
     },
     /**
      * Tính tổng số trang
-     * Author : NVDuong (06/1/2023)
+     
      */
     totalPageNumber() {
       return Math.ceil(this.totalRecord / this.pageSize);
@@ -419,7 +419,7 @@ export default {
   watch: {
     /**
      * Lựa chọn số bản ghi trên 1 trang
-     * Author : NVDuong (06/1/2023)
+     
      */
      pageSize: async function  () {
       this.isLoadding = true;
@@ -430,7 +430,7 @@ export default {
     },
     /**
      * Kiểm tra xem số lương nhân viên tích chọn để disable button
-     * Author : NVDuong (06/1/2023)
+     
      */
     listRowSelected: {
       handler() {

@@ -1,21 +1,8 @@
 <template>
   <div class="form-submit">
     <div class="m__e-form">
-      <div class="form__row" style="width: 100%">
-        <MInput
-            textField="Số lượng"
-            v-model="formData.Quantity"
-            :required="true"
-            ref="Quantity"
-            name="Quantity"
-            :tabIndex="1"
-            dis
-            :errorMsg="errorMsgObject?.Quantity"
-            :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|20`]"
-            @message-error-input="handleBindMessageInput"
-          />
-      </div>
-      <div class="form__col" style="width: 100%">
+      
+      <div class="form__col" style="width: 100%;" >
         
         <div class="form__row" style="width: 100%">
         <div class="form__row f-bw" style="width: 48%">
@@ -52,6 +39,35 @@
             />
           </div>
         </div>
+      </div>
+      <div style="height:24px"></div>
+      <div class="form__row" style="width: 100%">
+        <MInput
+            textField="Số lượng"
+            v-model="formData.Quantity"
+            :required="true"
+            ref="Quantity"
+            name="Quantity"
+            :tabIndex="1"
+            dis
+            :errorMsg="errorMsgObject?.Quantity"
+            :rules="[rules.NOT_EMPTY]"
+            @message-error-input="handleBindMessageInput"
+          />
+      </div>
+      <div class="form__row" style="width: 100%">
+        <MInput
+            textField="Giá tiền"
+            v-model="formData.Price"
+            :required="true"
+            ref="Price"
+            name="Price"
+            :tabIndex="1"
+            dis
+            :errorMsg="errorMsgObject?.Price"
+            :rules="[rules.NOT_EMPTY]"
+            @message-error-input="handleBindMessageInput"
+          />
       </div>
     </div>
   </div>

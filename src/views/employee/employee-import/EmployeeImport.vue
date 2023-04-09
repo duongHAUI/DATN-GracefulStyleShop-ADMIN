@@ -448,7 +448,7 @@ export default {
   computed: {
     /**
      * Tính tổng số trang
-     * Author : NVDuong (06/1/2023)
+     
      */
     totalPageNumber() {
       return Math.ceil(this.totalRecord / this.pageSize);

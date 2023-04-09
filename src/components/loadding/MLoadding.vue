@@ -47,7 +47,6 @@ export default {
   },
   /**
    * Hiển thị loadding
-   * Author : NVDuong (12/1/2023)
    */
   mounted() {
     !(function () {

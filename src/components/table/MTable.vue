@@ -133,7 +133,7 @@ export default {
   methods: {
     /**
      * Hiển thị list chức năng của 1 dòng
-     * Author : NVDuong (06/1/2023)
+     
      */
     showFunctionId(event, id) {
       if (this.id == id) {
@@ -168,7 +168,7 @@ export default {
     },
     /**
      * Hàm xử lý checkbox
-     * Author : NVDuong (06/1/2023)
+     
      */
     checkboxSelected(isChecked, id) {
       try {
@@ -205,7 +205,7 @@ export default {
     },
     /**
      * Hàm check tổng số phần tử trùng nhau của 2 mang
-     * Author : NVDuong (06/1/2023)
+     
      */
     testCheckAll() {
       // Kiểm tra coi có check all hay không
@@ -226,7 +226,7 @@ export default {
     },
     /**
      * Hiển thị pop-up xác nhận xóa
-     * Author : NVDuong (06/1/2023)
+     
      */
     confirmDeleteRow() {
       this.isPopUpDelete = true;
@@ -234,7 +234,7 @@ export default {
     },
     /**
      * Hiển thị pop-up xác nhận xóa
-     * Author : NVDuong (06/1/2023)
+     
      */
     deleteRow(){
       this.isPopUpDelete = false;

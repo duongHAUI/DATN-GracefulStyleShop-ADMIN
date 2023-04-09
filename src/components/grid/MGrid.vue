@@ -195,7 +195,6 @@ export default {
     },
     /**
      * Bắt sự kiện thay đổi trang
-     * Author : NVDuong (06/1/2023)
      */
     async eventHandlePaginate(pageNumber) {
       this.$state.isMask();
@@ -228,7 +227,6 @@ export default {
   computed: {
     /**
      * Get param filter data
-     * Author : NVDuong (06/1/2023)
      */
     params() {
       return {
@@ -240,7 +238,6 @@ export default {
     },
     /**
      * Tính tổng số trang
-     * Author : NVDuong (06/1/2023)
      */
     totalPageNumber() {
       return Math.ceil(this.totalRecord / this.pageSize);

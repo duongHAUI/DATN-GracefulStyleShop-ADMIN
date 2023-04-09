@@ -30,7 +30,7 @@
           name="Description"
           ref="Description"
           :tabIndex="2"
-          :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|255`]"
+          :rules="[`${rules.MAX_LENGTH}|255`]"
           :errorMsg="errorMsgObject?.Description"
           @message-error-input="handleBindMessageInput"
         />

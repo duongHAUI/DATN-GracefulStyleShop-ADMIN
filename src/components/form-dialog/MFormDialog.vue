@@ -176,12 +176,11 @@ export default {
         if (this.$state.form == this.formNameEnum.product) {
           let formData = new FormData();
           for (let index = 0; index < this.model.Images.files.length; index++) {
-            formData.append("Files[]", this.model.Images.files[index]);
+            formData.append("Files", this.model.Images.files[index]);
           }
-          formData.append("Images", [
-            "c98155d9-2fe9-4a03-bda5-e44c9d78be5c",
-            "2a3d331e-a8f3-47ce-b09d-b169231e2f75",
-          ]);
+          for (let index = 0; index < this.model.Images.files.images; index++) {
+            formData.append("Images[]",this.model.Images.files.images[0].id);
+          }
 
           formData.append("ObjectId", id);
           const api = new fileApi();

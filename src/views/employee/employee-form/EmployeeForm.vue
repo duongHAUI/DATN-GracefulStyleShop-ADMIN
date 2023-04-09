@@ -673,7 +673,7 @@ export default {
     },
     /**
      * Hàm xử lý value Datepicker
-     * Author : NVDuong (06/1/2023)
+     
      */
     handleBindDateValue(date, name) {
       console.log(1, date);
@@ -686,7 +686,7 @@ export default {
     },
     /**
      * Hàm check undefined and empty
-     * Author : NVDuong (06/1/2023)
+     
      */
     isEmpty(value, name) {
       var bool = !value ? true : false;
@@ -695,7 +695,7 @@ export default {
     },
     /**
      * Hàm gán lỗi
-     * Author : NVDuong (06/1/2023)
+     
      */
     assignSessage(name, msg) {
       this.errorMsgObject[name] = msg;
@@ -724,7 +724,7 @@ export default {
   computed: {
     /**
      * Hiện thi tiêu đề form
-     * Author : NVDuong (06/1/2023)
+     
      */
     titleForm() {
       return this.employeeIdSelected === null
@@ -735,7 +735,7 @@ export default {
   watch: {
     /**
      * Check hiển thị form thêm hay sửa
-     * Author : NVDuong (06/1/2023)
+     
      */
     isShow: async function () {
       try {
@@ -768,7 +768,7 @@ export default {
     },
     /**
      * KIểm tra sự thay đổi của employee
-     * Author : NVDuong (06/1/2023)
+     
      */
     employee: {
       handler(newValue) {
@@ -780,7 +780,7 @@ export default {
     },
     /**
      * Gán hoạt động thêm, sửa hoặc nhân bản
-     * Author : NVDuong (06/1/2023)
+     
      */
     action: function () {
       this.actionForm = this.action;

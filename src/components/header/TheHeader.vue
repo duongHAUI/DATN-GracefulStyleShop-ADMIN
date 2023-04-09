@@ -48,7 +48,7 @@ export default {
   },
   /**
    * Theo dõi sự thay đổi đóng mở của sidebar
-   * Author : NVDuong (06/1/2023)
+   
    */
   watch: {
     "$state.toggleSidebar": function () {

@@ -52,14 +52,14 @@ export default {
   methods: {
     /**
      * Xử lý active item sidebar
-     * Author : NVDuong (06/1/2023)
+     
      */
     activeItem(index) {
       this.itemActive = index;
     },
     /**
      * Xử lý mở rộng side bar
-     * Author : NVDuong (06/1/2023)
+     
      */
     toggleSidebarChange() {
       if (!this.toggleSidebar) {
@@ -70,7 +70,7 @@ export default {
   },
   /**
    * Theo dõi sự thay đổi đóng mở của sidebar
-   * Author : NVDuong (06/1/2023)
+   
    */
   watch: {
     "$state.toggleSidebar": function () {
