@@ -6,7 +6,6 @@ import enumMISA from "../assets/js/enum";
 
 /**
  * Config axios
- * Author : NVDuong (05/1/2023)
  */
 const axiosClient = axios.create({
   baseURL: process.env.VUE_APP_BASE_API_URL,
@@ -21,7 +20,6 @@ const axiosClient = axios.create({
 
 /**
  * Config response
- * Author : NVDuong (05/1/2023)
  */
 axiosClient.interceptors.response.use(
   (response) => {

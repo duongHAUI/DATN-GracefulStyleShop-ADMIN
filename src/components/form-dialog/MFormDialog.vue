@@ -35,6 +35,11 @@
           :ref="$state.nameTable"
           v-model="model"
         />
+        <FormSupplier
+          v-if="$state.form == formNameEnum.supplier"
+          :ref="$state.nameTable"
+          v-model="model"
+        />
         <FormProductVariant
           v-if="$state.form == formNameEnum.productvariant"
           :ref="$state.nameTable"
@@ -89,6 +94,7 @@ import FormBrand from "@/views/brand/FormBrand.vue";
 import FormProduct from "@/views/product/FormProduct.vue";
 import FormProductVariant from "@/views/productvariant/FormProductVariant.vue";
 import FormType from "@/views/type/FormType.vue";
+import FormSupplier from "@/views/supplier/FormSupplier.vue";
 export default {
   name: "MFormPopup",
   components: {
@@ -99,6 +105,7 @@ export default {
     FormProduct,
     FormType,
     FormProductVariant,
+    FormSupplier,
   },
   props: {
     submitForm: String,
@@ -149,7 +156,6 @@ export default {
     },
     /**
      * Hàm validate form true : không lỗi
-     * Author : NVDuong (05/1/2023)
      */
     checkValidateFormSubmit() {
       for (const property in this.$refs[this.$state.nameTable].$refs) {

@@ -41,14 +41,12 @@ export default {
   },methods:{
     /**
      * Hàm xử lý sự kiện click
-     * Author : NVDuong (9/1/2023)
      */ 
     onClick(event){
       this.$emit("click",event);
     },
     /**
      * Hàm xử lý sự kiện focus
-     * Author : NVDuong (9/1/2023)
      */ 
     onFocus() {
       this.$refs[this.name].focus();

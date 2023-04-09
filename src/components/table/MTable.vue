@@ -153,7 +153,6 @@ export default {
     },
     /**
      * Xử lý click out side cho list action
-     * Author : NVDuong (24/2/2023)
      */
     clickOutSideFunction(e) {
       const check = this.$refs.btnFunction.filter((x) => x.contains(e.target));

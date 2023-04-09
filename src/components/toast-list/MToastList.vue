@@ -34,7 +34,6 @@ export default {
   methods: {
     /**
      * Close toast message
-     * Author : NVDuong (10/1/2023)
      */
     closeItem(index){
       this.$state.toastMessage.splice(index, 1);
@@ -43,7 +42,6 @@ export default {
   watch :{
     /**
      * Bắt sự kiện khi thêm toast message
-     * Author : NVDuong (10/1/2023)
      */
     '$state.toastMessage'(){
       this.listToast = this.$state.toastMessage;

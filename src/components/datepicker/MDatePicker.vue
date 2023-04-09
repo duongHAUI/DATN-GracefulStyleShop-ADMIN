@@ -88,14 +88,12 @@ export default {
   methods: {
     /**
      * Truyền sự kiện date thay đổi
-     * Author : NVDuong (05/1/2023)
      */
     changeDateValue(date) {
       this.$emit("update:modelValue", date);
     },
     /**
      * Check vaidate theo rules truyen vao
-     * Author : NVDuong (05/1/2023)
      */
     checkValidate() {
       if (this.rules.length != 0) {
@@ -109,7 +107,6 @@ export default {
     },
     /**
      * Kiểm tra date hợp lệ
-     * Author : NVDuong (05/1/2023)
      */
     isDateValid(event){
       var value = event.target.value;
@@ -118,7 +115,6 @@ export default {
     },
     /**
      * Xử lý nhập tay khi change
-     * Author : NVDuong (05/1/2023)
      */
     onInput(event){
       if (this.isDateValid(event)) {
@@ -128,7 +124,6 @@ export default {
     },
     /**
      * Xử lý nhập tay khi blur
-     * Author : NVDuong (05/1/2023)
      */
     blurInput(event) {
       this.$refs[this.name+'date'].closeMenu();
@@ -142,7 +137,6 @@ export default {
     },
     /**
      * Xử lý không cho phép nhập quá ngày hiện tại
-     * Author : NVDuong (05/1/2023)
      */
     disabledDate(time) {
       return time.getTime() > Date.now();
@@ -153,7 +147,6 @@ export default {
   computed: {
     /**
      * Format date
-     * Author : NVDuong (05/1/2023)
      */
     formatDate() {
       return common.formatDate(this.modelValue);

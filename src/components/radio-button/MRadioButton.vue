@@ -33,7 +33,6 @@ export default {
   methods: {
     /**
      * Bắt sự kiện onChange
-     * Author : NVDuong (05/1/2023)
      */
     onChange() {
       this.$emit("change", this.id);

@@ -1,14 +1,14 @@
 <template>
-    <div class="m-color">
+    <div class="m-supplier">
         <m-grid :data="_data" />
     </div>
 </template>
 <script>
 import MGrid from '@/components/grid/MGrid.vue';
-import ProductConfig from "@/views/product/ProductConfig.js";
+import SupplierConfig from "@/views/supplier/SupplierConfig.js";
 import mixinPage from "@/mixins/mixinPage.js";
 export default {
-    name:"MProduct",
+    name:"MSupplier",
     mixins:[mixinPage],
     components:{
         MGrid
@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             // eslint-disable-next-line vue/no-reserved-keys
-            _data : new ProductConfig()
+            _data : new SupplierConfig()
         }
     },
 }

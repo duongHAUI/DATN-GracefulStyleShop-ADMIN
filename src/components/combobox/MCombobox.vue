@@ -56,7 +56,10 @@
           }"
           @mousedown="itemSelected(item, index)"
         >
-          {{ item[propName] }}
+          <div style="display:flex">
+            <div class="m-combobox-item-code">{{item[propCode]}}</div>
+            <div class="m-combobox-item-name">{{ item[propName] }}</div>
+          </div>
         </li>
       </div>
     </div>
@@ -75,6 +78,7 @@ export default {
     propName: String,
     modelValue: [String, Number],
     textField: String,
+    propCode : String,
     name: String,
     required: Boolean,
     isReadonly: Boolean,
@@ -124,7 +128,6 @@ export default {
   methods: {
     /**
      * Hàm ẩn hiện list combobox
-     * Author : NVDuong (12/1/2023)
      */
     onToggleList() {
       this.isShowHideList = !this.isShowHideList;
@@ -139,7 +142,6 @@ export default {
     },
     /**
      * Hàm chọn item hiển thị lên input
-     * Author : NVDuong (12/1/2023)
      */
     itemSelected(item, index) {
       this.textSelected = item[this.propName];
@@ -150,7 +152,6 @@ export default {
     },
     /**
      * Hàm set item được chọn khi truyền vào
-     * Author : NVDuong (12/1/2023)
      */
     setItemSelected() {
       var item = this.data.find((x) => x[this.propValue] == this.modelValue);
@@ -161,7 +162,6 @@ export default {
     },
     /**
      * Hàm tìm kiếm tiem
-     * Author : NVDuong (12/1/2023)
      */
     onSearchItem() {
       this.dataSearch = this.data.filter((x) =>
@@ -174,7 +174,6 @@ export default {
     },
     /**
      * Bắt sự kiện focus
-     * Author : NVDuong (12/1/2023)
      */
     inputFocus(){
       this.dataSearch = this.data;
@@ -182,14 +181,12 @@ export default {
     },
     /**
      * Bắt sự kiện blur
-     * Author : NVDuong (12/1/2023)
      */
     inputBlur(){
       this.isShowHideList = false;
     },
     /**
      * Hàm xử lý bàn phím
-     * Author : NVDuong (12/1/2023)
      */
     inputOnKeyDown(event) {
       switch (event.keyCode) {
@@ -243,7 +240,6 @@ export default {
     },
     /**
      * Check vaidate theo rules truyen vao
-     * Author : NVDuong (05/1/2023)
      */
     checkValidate() {
       if (this.rules.length != 0) {
@@ -268,7 +264,6 @@ export default {
     },
     /**
      * Hàm focus input
-     * Author : NVDuong (12/1/2023)
      */
     onFocus() {
       this.$refs[this.name].focus();
@@ -277,7 +272,6 @@ export default {
   watch: {
     /**
      * Phát hiện sự thay đổi của phòng ban
-     * Author : NVDuong (12/1/2023)
      */
     modelValue() {
       if (this.modelValue) {
@@ -292,7 +286,6 @@ export default {
     },
     /**
      * Validate nếu text không tồn tại thì k hợp lệ
-     * Author : NVDuong (12/1/2023)
      */
     textSelected() {
       if (!this.textSelected) {
@@ -305,4 +298,14 @@ export default {
 
 <style scoped>
 @import url(./combobox.css);
+.m-combobox-item-code{
+  flex-basis: 30%;
+  height: 100%;
+  border-right: 1px solid #5e5b5b;
+}
+.m-combobox-item-name{
+  flex-basis: 69%;
+  height: 100%;
+  padding-left: 8px;
+}
 </style>

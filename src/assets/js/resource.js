@@ -1,12 +1,10 @@
 /**
  * Các msg thông báo
- * Author : NVDuong (9/1/2023)
  */
 const resources = {
   vi: {
     /**
      * msg validate form nhan vien
-     * Author : NVDuong (9/1/2023)
      */
     FORM_MESSAGE: {
       SUCCESS: {
@@ -27,7 +25,6 @@ const resources = {
     },
     /**
      * Tên trường của input
-     * Author : NVDuong (9/1/2023)
      */
     FORM_FIELD: {
       Address: "Địa chỉ",
@@ -67,7 +64,6 @@ const resources = {
     },
     /**
      * Các thông báo toast-msg
-     * Author : NVDuong (9/1/2023)
      */
 
     TOAST_MESSAGE: {
@@ -92,7 +88,6 @@ const resources = {
     },
     /**
      * Tên file
-     * Author : NVDuong (9/1/2023)
      */
     nameFile: {
       templateImport: "Mau_danh_muc_nhan_vien.xlsx",
@@ -101,7 +96,6 @@ const resources = {
     },
     /**
      * Trạng thái dòng import
-     * Author : NVDuong (9/1/2023)
      */
     statusRowImport: {
       valid: "Hợp lệ.",
@@ -109,7 +103,6 @@ const resources = {
     },
     /**
      * Tiêu đề chức năng
-     * Author : NVDuong (9/1/2023)
      */
     ACTION: {
       ADD: "Thêm",
@@ -118,7 +111,6 @@ const resources = {
     },
     /**
      * Các thông báo lỗi api
-     * Author : NVDuong (9/1/2023)
      */
     errorMessageAPI:{
       ERROR_NETWORK: "Có lỗi phản hồi từ máy chủ vui lòng thử lại sau.",
@@ -132,7 +124,6 @@ const resources = {
   },
   /**
    * Các rules validate
-   * Author : NVDuong (9/1/2023)
    */
   FORM_RULES: {
     NOT_EMPTY: "NOT_EMPTY",

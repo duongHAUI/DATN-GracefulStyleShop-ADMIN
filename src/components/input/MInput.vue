@@ -86,7 +86,6 @@ export default {
   methods: {
     /**
      * Truyền sự kiển đổi value input
-     * Author : NVDuong (05/1/2023)
      */
     changeValue(event) {
       this.$emit("update:modelValue", event.target.value);
@@ -94,7 +93,6 @@ export default {
     },
     /**
      * Check vaidate theo rules truyen vao
-     * Author : NVDuong (05/1/2023)
      */
     checkValidate(){
       if(this.rules.length > 0){
@@ -104,7 +102,6 @@ export default {
     },
     /**
      * Focus input
-     * Author : NVDuong (05/1/2023)
      */
     onFocus() {
       this.$refs[this.name].focus();
@@ -113,14 +110,12 @@ export default {
   computed: {
     /**
      * căn trái
-     * Author : NVDuong (05/1/2023)
      */
     paddingRight() {
       return this.classIcon ? "36px" : "16px";
     },
     /**
      * Cách lable
-     * Author : NVDuong (05/1/2023)
      */
     marginTopInput() {
       return this.textField ? "5px" : "";

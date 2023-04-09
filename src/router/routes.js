@@ -5,10 +5,10 @@ import MBrand from "@/views/brand/MBrand.vue";
 import MType from "@/views/type/MType.vue";
 import MProductVariant from "@/views/productvariant/MProductVariant.vue";
 import MProduct from "@/views/product/MProduct.vue";
+import MSupplier from "@/views/supplier/MSupplier.vue";
 
 /**
  * Các routes của page
- * Author : NVDuong (9/1/2023)
  */
 const routes = [
   {
@@ -34,6 +34,10 @@ const routes = [
   {
     path: "/types",
     component: MType,
+  },
+  {
+    path: "/suppliers",
+    component: MSupplier,
   },
   {
     path: "/:pathMatch(.*)*",

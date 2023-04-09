@@ -1,7 +1,6 @@
 import axiosClient from "./axiosClient";
 /**
  * Các API liên quan đến Employee
- * Author: NVDuong - 04/01/23
  */
 class baseApi {
   constructor(table) {
@@ -10,7 +9,6 @@ class baseApi {
   baseUrl = ""
   /**
    * Lấy các nhân viên theo bộ lọc
-   * Author: NVDuong - 04/01/2023
    */
   getByFilter = (params) => {
     try {
@@ -28,7 +26,6 @@ class baseApi {
   };
   /**
    * Lấy mã nhân viên mới
-   * Author: NVDuong - 04/01/23
    */
   getNewCode = () => {
     try {
@@ -39,7 +36,6 @@ class baseApi {
   };
   /**
    * Lấy 1 nhân viên theo Id
-   * Author: NVDuong - 04/01/2023
    */
   getById = (id) => {
     try {
@@ -50,7 +46,6 @@ class baseApi {
   };
   /**
    * Thêm phòng ban
-   * Author: NVDuong - 04/01/23
    */
   create = (employee) => {
     try {
@@ -61,7 +56,6 @@ class baseApi {
   };
   /**
    * Sửa phòng ban
-   * Author: NVDuong - 04/01/23
    */
   update = (id, newEmployee) => {
     try {
@@ -72,7 +66,6 @@ class baseApi {
   };
   /**
    * Xóa phòng ban theo Id
-   * Author: NVDuong - 04/01/23
    */
   remove = (ids) => {
     try {

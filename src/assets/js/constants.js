@@ -1,7 +1,6 @@
 const constants = {
   /**
    * List item sidebar
-   * Author : NVDuong (05/1/2023)
    */
   SidebarMenu: [
     {
@@ -34,10 +33,15 @@ const constants = {
       path : "/types",
       name:"Type"
     },
+    {
+      text: "Nhà cung cấp",
+      classIcon: "icon-cash",
+      path : "/suppliers",
+      name:"Supplier"
+    },
   ],
   /**
    * List item pageSize
-   * Author : NVDuong (05/1/2023)
    */
   listNavigateNumber: [
     {
@@ -63,7 +67,6 @@ const constants = {
   ],
   /**
    * List item pageSize
-   * Author : NVDuong (05/1/2023)
    */
   listStatusFilterImport: [
     {
@@ -81,7 +84,6 @@ const constants = {
   ],
   /**
    * Regex
-   * Author : NVDuong (05/1/2023)
    */
   regexConstants: {
 		EmployeeCode: /^NV-[0-9]{1,17}$/,

@@ -39,7 +39,6 @@ export default {
   methods: {
     /**
      * Xử lý thu gọn sidebar
-     * Author : NVDuong (05/1/2023)
      */
     toggleSidebarChange() {
       this.toggleSidebar = false;

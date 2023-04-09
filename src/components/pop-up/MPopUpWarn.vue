@@ -65,7 +65,6 @@ export default {
   methods: {
     /**
      * Đóng popup
-     * Author : NVDuong (05/1/2023)
      */
     closePopUp() {
       this.$emit("close-pop-up");

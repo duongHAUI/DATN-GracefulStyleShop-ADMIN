@@ -2,7 +2,6 @@ import {reactive} from 'vue'
 
 /**
  * các biến global
- * Author : NVDuong (10/1/2023)
  */
 const state = reactive({
   form : 0,
@@ -17,17 +16,14 @@ const state = reactive({
   isLoadding : false,
   /**
    * Mảng chứa các toast message
-   * Author : NVDuong (10/1/2023)
    */
   toastMessage: [],
   /**
    * Biến to nhỏ Sidebar
-   * Author : NVDuong (10/1/2023)
    */
   toggleSidebar : true,
   /**
    * Hàm hiển thị toast message
-   * Author : NVDuong (10/1/2023)
    */
   addToastMessage: function (me, msg) {
     me.$state.toastMessage.unshift(msg);

@@ -7,7 +7,6 @@ export default {
   methods: {
     /**
      * Xử lý khi input message lỗi
-     * Author : NVDuong (05/1/2023)
      */
     handleBindMessageInput(name, msgError) {
       this.errorMsgObject[name] = msgError;

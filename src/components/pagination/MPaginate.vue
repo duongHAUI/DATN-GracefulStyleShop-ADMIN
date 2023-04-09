@@ -60,7 +60,6 @@ export default {
   methods: {
     /**
      * Xử lý khi chọn page
-     * Author : NVDuong (05/1/2023)
      */
     eventHandlePaginate(pageNumber) {
       this.$emit("change", pageNumber);
@@ -69,7 +68,6 @@ export default {
   watch:{
     /**
      * Kiểm tra sự thay đổi của pageSize
-     * Author : NVDuong (05/1/2023)
      */
     pageCount(){
       this.page = 1;

@@ -4,12 +4,10 @@ import enumMISA from "./enum";
 import resources from "./resource";
 /**
  * Các hàm dùng chung
- * Author : NVDuong (05/1/2023)
  */
 const common = {
   /**
    * Format date (DD/MM/YYYY)
-   * Author : NVDuong (05/1/2023)
    */
   formatDate: (dateTime) => {
     try {
@@ -33,7 +31,6 @@ const common = {
   },
   /**
    * Hàm chuyển từ enum giới tính ra tên
-   * Author : NVDuong (05/1/2023)
    */
   getTitleGender: (gender) => {
     var title = "Khác";
@@ -58,7 +55,6 @@ const common = {
   },
   /**
    * Format tiền VN
-   * Author : NVDuong (05/1/2023)
    */
   formatSalaryVN: (salary) => {
     return salary
@@ -70,7 +66,6 @@ const common = {
   },
   /**
    * Hàm validate input
-   * Author : NVDuong (10/1/2023)
    */
   inputValidation: (rules, name, value) => {
     const FORM_FIELD = resources.vi.FORM_FIELD;

@@ -1,7 +1,6 @@
 const enumMISA = {
   /**
    * Enum giới tính
-   * Author : NVDuong (05/1/2023)
    */
   enumGender: {
     // Nam
@@ -13,7 +12,6 @@ const enumMISA = {
   },
   /**
    * List tháng VN
-   * Author : NVDuong (05/1/2023)
    */
   enumMonthVN: {
     Jan: "Tháng 1",
@@ -31,7 +29,6 @@ const enumMISA = {
   },
   /**
    * Chức năng thực thiện
-   * Author : NVDuong (05/1/2023)
    */
   enumActionForm : {
     // Xóa
@@ -46,7 +43,6 @@ const enumMISA = {
 
   /**
    * Chức năng button form
-   * Author : NVDuong (05/1/2023)
    */
   enumActionButtonForm : {
     // Cất
@@ -56,7 +52,6 @@ const enumMISA = {
   },
   /**
    * List key code
-   * Author : NVDuong (12/1/2023)
    */
   KEY_CODE : {
     // Phím enter
@@ -68,7 +63,6 @@ const enumMISA = {
   },
   /**
    * List key code
-   * Author : NVDuong (12/1/2023)
    */
   LoCATION_LIST_CBB : {
     // Phím lên
@@ -78,7 +72,6 @@ const enumMISA = {
   },
   /**
    * List lỗi trả về
-   * Author : NVDuong (12/1/2023)
    */
   ERROR_RESPONSE : {
     // Không có dữ liệu
@@ -90,7 +83,6 @@ const enumMISA = {
   },
   /**
    * List lỗi phản hồi
-   * Author : NVDuong (12/1/2023)
    */
   ERROR_REQUEST : {
     // Lỗi không phản hồi
@@ -98,7 +90,6 @@ const enumMISA = {
   },
   /**
    * Nút button inport
-   * Author : NVDuong (05/1/2023)
    */
   btnImport :{
     close : "Đóng",
@@ -108,7 +99,6 @@ const enumMISA = {
   },
   /**
    * Trạng thái dòng kiểm tra tình trạng import
-   * Author : NVDuong (05/1/2023)
    */
   enumStatusCodeImport :{
     all : 3,

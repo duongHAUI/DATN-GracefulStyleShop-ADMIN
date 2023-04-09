@@ -20,7 +20,6 @@ export default {
     },
     /**
      * Truyền sự kiện chexbox
-     * Author : NVDuong (05/1/2023)
      */
     methods:{
       selectedCheckBox(){
