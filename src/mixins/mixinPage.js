@@ -1,7 +1,5 @@
 export default {
     created() {
-        // eslint-disable-next-line no-debugger
-        debugger
         this.$state.form  =  this._data.formName;
         this.$state.titleForm =  this._data.titleForm;
         this.$state.isSaveForm =  false;

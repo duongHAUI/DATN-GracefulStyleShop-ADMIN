@@ -88,11 +88,12 @@
             />
           </div>
         </div>
-        <MUpload v-model="formData.Images" />
+        <MUpload v-model="formData.FileModel" :dataImages="formData.Images"/>
         <div class="m-t-20">
           <MTinyMCE v-model="formData.Description" />
         </div>
       </div>
+      <img src="/images/products/8784d5d9-343a-4919-961c-b6bb34d78643_z3963315528673_9d28407358304987898eace155ba3c94.jpg" alt="Mô tả ảnh">
     </div>
   </div>
 </template>
@@ -120,8 +121,6 @@ export default {
   created: async function () {
     this.listBrand = await this.getDataCombobox("Brand");
     this.listType = await this.getDataCombobox("Type");
-    // eslint-disable-next-line no-debugger
-    debugger
   },
   props: {
     modelValue: Object,

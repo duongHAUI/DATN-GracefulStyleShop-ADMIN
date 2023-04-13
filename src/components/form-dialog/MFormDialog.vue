@@ -119,6 +119,7 @@ export default {
       model: {},
       baseApi: new baseApi(this.$state.nameTable),
       actionButtonForm: enumMISA.enumActionButtonForm, // Chức năng button form
+      FileModel : null
     };
   },
   methods: {
@@ -127,32 +128,38 @@ export default {
       this.model = res;
     },
     async onSubmitFormEmployee(method) {
-      // eslint-disable-next-line no-debugger
-      debugger
-      this.isLoading = true;
-      if (method) {
-        console.log(method);
+      try {
+        this.$state.isMask();
+        if (method) {
+          console.log(method);
+        }
+        if (!this.checkValidateFormSubmit()) {
+          return;
+        }
+
+        this.FileModel = this.model?.FileModel;
+        delete this.model.FileModel;
+        delete this.model.Images;
+
+        // kiểm tra là thêm hay sửa
+        var res = this.$state.idModel
+          ? await this.baseApi.update(this.$state.idModel, this.model) // Gọi api Update
+          : await this.baseApi.create(this.model); // Gọi api Create
+
+        // Xử lý custom
+        await this.insertOrUpdateCustom(res.Data);
+
+        this.model = {};
+        this.$state.idModel = "";
+        this.$state.isSaveForm = true;
+        this.$state.unMask();
+        if (method != enumMISA.enumActionButtonForm.addAndSave) {
+          this.$state.isShowForm = false;
+        }
+      } catch (error) {
+        this.$state.unMask();
+        console.log(error);
       }
-      if (!this.checkValidateFormSubmit()) {
-        return;
-      }
-
-      // kiểm tra là thêm hay sửa
-      var res = this.$state.idModel
-        ? await this.baseApi.update(this.$state.idModel, this.model) // Gọi api Update
-        : await this.baseApi.create(this.model); // Gọi api Create
-
-      // Xử lý custom
-      await this.insertOrUpdateCustom(res.Data);
-
-      if (method != enumMISA.enumActionButtonForm.addAndSave) {
-        this.$state.isShowForm = false;
-      } 
-
-      this.model = {};
-      this.$state.idModel = "";
-      this.$state.isSaveForm = true;
-      this.isLoading = true;
     },
     /**
      * Hàm validate form true : không lỗi
@@ -170,8 +177,6 @@ export default {
       return true;
     },
     closeForm() {
-      // eslint-disable-next-line no-debugger
-      debugger
       this.$state.isShowForm = false;
       this.$state.idModel = "";
       this.model = {};
@@ -181,11 +186,15 @@ export default {
       try {
         if (this.$state.form == this.formNameEnum.product) {
           let formData = new FormData();
-          for (let index = 0; index < this.model.Images.files.length; index++) {
-            formData.append("Files", this.model.Images.files[index]);
+          for (
+            let index = 0;
+            index < this.FileModel.files.length;
+            index++
+          ) {
+            formData.append("Files", this.FileModel.files[index]);
           }
-          for (let index = 0; index < this.model.Images.files.images; index++) {
-            formData.append("Images[]",this.model.Images.files.images[0].id);
+          for (let index = 0; index < this.FileModel.images.length; index++) {
+            formData.append("Images[]", this.FileModel.images[index].ImageId);
           }
 
           formData.append("ObjectId", id);

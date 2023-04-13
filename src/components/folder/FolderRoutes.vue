@@ -24,8 +24,6 @@ export default {
     },
   },
   created(){
-    // eslint-disable-next-line no-debugger
-    debugger
     if(this.$state.parentName){
       this.folderRoutesTest.push({
         name : "Trở lại",

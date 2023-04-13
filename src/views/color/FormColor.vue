@@ -5,13 +5,10 @@
         <MInput
           textField="Mã màu"
           v-model="formData.ColorCode"
-          :required="true"
           ref="ColorCode"
           name="ColorCode"
+          type="color"
           :tabIndex="1"
-          :errorMsg="errorMsgObject?.ColorCode"
-          :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|20`]"
-          @message-error-input="handleBindMessageInput"
         />
         <MInput
           textField="Tên màu"

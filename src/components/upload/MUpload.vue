@@ -16,8 +16,7 @@
     <div class="m-upload-list">
       <div class="m-upload-item" v-for="(image, index) in images" :key="index">
             <img
-            :src="image.url"
-            :alt="image.name"
+            :src="image.ImageLink"
             />
             <div class="m-upload-item-close" @click="closeImage(index)">
                 <div class="icon-close"></div>
@@ -31,12 +30,15 @@ export default {
   name: "MUpload",
   props: {
     name: String,
-    modelValue:Object
+    modelValue:Object,
+    dataImages: Object,
   },
   components: {},
   created(){
-    this.images = this.modelValue ? this.modelValue : [] ;
-    this.files = Array(!this.modelValue?.length ? 0 : this.modelValue?.length).fill(false);
+    // eslint-disable-next-line no-debugger
+    debugger
+    this.images = this.dataImages ? this.dataImages : [] ;
+    this.files = Array(!this.dataImages?.length ? 0 : this.dataImages?.length).fill(false);
   },
   data() {
     return {
@@ -65,8 +67,9 @@ export default {
       for (let index = 0; index < files.length; index++) {
         let url = URL.createObjectURL(files[index]);
         this.images.push({
-          url: url,
-          name: files[index].name,
+          ImageId : "",
+          ImageLink: url,
+          ImageName: files[index].name,
           local: true
         });
         this.files.push(files[index]);
@@ -89,6 +92,15 @@ export default {
       this.updateModelValue();
     }
   },
+  watch:{
+    dataImages:function(){
+      // eslint-disable-next-line no-debugger
+      debugger
+      if(!this.images?.length > 0){
+        this.images = this.dataImages ? this.dataImages : [] ;
+      }
+    }
+  }
 };
 </script>
 <style scoped>

@@ -219,8 +219,6 @@ export default {
       }
     },
     onShowForm(){
-      // eslint-disable-next-line no-debugger
-      debugger
       this.$state.isShowForm = true;
     }
   },
