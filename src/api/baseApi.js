@@ -1,6 +1,6 @@
 import axiosClient from "./axiosClient";
 /**
- * Các API liên quan đến Employee
+ * Các API liên quan đến dữ liệu
  */
 class baseApi {
   constructor(table) {
@@ -8,7 +8,7 @@ class baseApi {
   }
   baseUrl = ""
   /**
-   * Lấy các nhân viên theo bộ lọc
+   * Lấy các item theo bộ lọc
    */
   getByFilter = (params) => {
     try {
@@ -25,7 +25,7 @@ class baseApi {
     }
   };
   /**
-   * Lấy mã nhân viên mới
+   * Lấy mã item mới
    */
   getNewCode = () => {
     try {
@@ -35,7 +35,7 @@ class baseApi {
     }
   };
   /**
-   * Lấy 1 nhân viên theo Id
+   * Lấy 1 item theo Id
    */
   getById = (id) => {
     try {
@@ -45,31 +45,41 @@ class baseApi {
     }
   };
   /**
-   * Thêm phòng ban
+   * Thêm dữ liệu
    */
-  create = (employee) => {
+  create = (item) => {
     try {
-      return axiosClient.post(this.baseUrl, employee);
+      return axiosClient.post(this.baseUrl, item);
     } catch (error) {
       console.log(error);
     }
   };
   /**
-   * Sửa phòng ban
+   * Sửa dữ liệu
    */
-  update = (id, newEmployee) => {
+  update = (id, newItem) => {
     try {
-      return axiosClient.put(this.baseUrl + id, newEmployee);
+      return axiosClient.put(this.baseUrl + id, newItem);
     } catch (error) {
       console.log(error);
     }
   };
   /**
-   * Xóa phòng ban theo Id
+   * Xóa dữ liệu theo Id
    */
   remove = (ids) => {
     try {
       return axiosClient.post(this.baseUrl + "Delete-Records", ids);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  /**
+   * Khóa
+   */
+  lockup = (ids) => {
+    try {
+      return axiosClient.post(this.baseUrl + "Lock-Up", ids);
     } catch (error) {
       console.log(error);
     }

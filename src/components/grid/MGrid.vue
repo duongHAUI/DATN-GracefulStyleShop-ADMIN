@@ -1,9 +1,9 @@
 <template>
   <div class="m-main-content-header">
-    <div class="m-main-content-title">{{data.titleForm}}</div>
+    <div class="m-main-content-title">{{getTitle}}</div>
     <div class="m-main-content-btn-add">
       <div @click="onShowForm">
-        <MButton>Thêm</MButton>
+        <MButton v-if="$state.mode !== enumMISA.enumMode.view">Thêm</MButton>
       </div>
       <div
         class="m-main-content-btn-import"
@@ -45,7 +45,6 @@
           @change-input="searchData"
           width="220px"
           marginBottom="0px"
-          v-if="data?.search == false"
         />
         <div
           class="content-table__refesh icon-refesh"
@@ -66,6 +65,7 @@
       @delete="deleteRowTable"
       v-model="rowsSelected"
       :isLoadding="isLoadding"
+      @refresh="refresh()"
     />
     <div class="content-navigation">
       <div class="content-navigation__total">
@@ -112,6 +112,7 @@ import MTable from "../table/MTable.vue";
 import baseApi from "@/api/baseApi";
 import MPopUpWarn from "../pop-up/MPopUpWarn.vue";
 import FolderRoutes from '../folder/FolderRoutes.vue';
+import enumMISA from "@/assets/js/enum";
 export default {
   name: "MGrid",
   components: {
@@ -143,6 +144,7 @@ export default {
       isShowActionprocessMutiple: false,
       rowsSelected: [],
       isPopUpDelete: false,
+      enumMISA :enumMISA
     };
   },
   methods: {
@@ -233,6 +235,12 @@ export default {
         textSearch: this.textSearch,
         parentId : this.$route.params.id
       };
+    },
+    getTitle(){
+      if(this.$state.form == enumMISA.formName.productvariant){
+        return localStorage.getItem("parentName") 
+      }
+      return this.data.titleForm ;
     },
     /**
      * Tính tổng số trang

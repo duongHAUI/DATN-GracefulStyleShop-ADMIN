@@ -39,6 +39,24 @@ const constants = {
       path : "/suppliers",
       name:"Supplier"
     },
+    {
+      text: "Phương thức giao hàng",
+      classIcon: "icon-cash",
+      path : "/shipments",
+      name:"Shipment"
+    },
+    {
+      text: "Khách hàng",
+      classIcon: "icon-cash",
+      path : "/customers",
+      name:"Customer"
+    },
+    {
+      text: "Quản trị viên",
+      classIcon: "icon-cash",
+      path : "/admins",
+      name:"Admin"
+    },
   ],
   /**
    * List item pageSize
@@ -86,7 +104,7 @@ const constants = {
    * Regex
    */
   regexConstants: {
-		EmployeeCode: /^NV-[0-9]{1,17}$/,
+		ItemCode: /^NV-[0-9]{1,17}$/,
 		Email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
 		PhoneNumber: /((09|03|07|08|05)+([0-9]{8})\b)/,
 		PhoneNumberFixed: /((09|03|07|08|05)+([0-9]{8})\b)/,

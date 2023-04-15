@@ -4,7 +4,6 @@ class typeConfig {
         this.tableName = 'Type';
         this.formName = enumMISA.formName.type;
         this.titleForm = "Thể loại";
-        this.search = false;
         this.columns = [
             {
                 name : "TypeCode",

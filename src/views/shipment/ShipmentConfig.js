@@ -1,36 +1,36 @@
-import enumMISA from "@/assets/js/enum";
-class supplierConfig {
+import enumH from "@/assets/js/enum";
+class shipmentConfig {
     constructor() {
-        this.tableName = 'Supplier';
-        this.titleForm = "Nhà cung cấp";
-        this.formName = enumMISA.formName.supplier;
+        this.tableName = 'Shipment';
+        this.titleForm = "Phương thức giao hàng";
+        this.formName = enumH.formName.shipment;
         this.columns = [
             {
-                name : "SupplierCode",
-                title : "Mã nhà cung cấp",
+                name : "ShipmentCode",
+                title : "Mã phương thức",
                 textAlign : "left",
                 type : "text",
                 width : 150,
             },
             {
-                name : "SupplierName",
-                title : "Tên nhà cung cấp",
+                name : "Method",
+                title : "Tên phương thức",
                 textAlign : "left",
                 type : "text",
                 width : 150,
             },
             {
-                name : "Phone",
-                title : "Số điện thoại",
+                name : "DateReceive",
+                title : "Thời gian nhận sau khoảng (ngày)",
                 textAlign : "left",
                 type : "text",
                 width : 150,
             },
             {
-                name : "Address",
-                title : "Địa chỉ",
-                textAlign : "left",
-                type : "text",
+                name : "PriceShip",
+                title : "Phí ship",
+                textAlign : "right",
+                type : "number",
                 width : 150,
             },
             {
@@ -51,5 +51,5 @@ class supplierConfig {
         this.placeholder = "Tìm kiếm ";
     }
   }
-  export default supplierConfig;
+  export default shipmentConfig;
   

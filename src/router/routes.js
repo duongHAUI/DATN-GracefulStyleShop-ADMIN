@@ -6,6 +6,9 @@ import MType from "@/views/type/MType.vue";
 import MProductVariant from "@/views/productvariant/MProductVariant.vue";
 import MProduct from "@/views/product/MProduct.vue";
 import MSupplier from "@/views/supplier/MSupplier.vue";
+import MShipment from "@/views/shipment/MShipment.vue";
+import MCustomer from "@/views/customer/MCustomer.vue";
+import MAdmin from "@/views/admin/MAdmin.vue";
 
 /**
  * Các routes của page
@@ -38,6 +41,18 @@ const routes = [
   {
     path: "/suppliers",
     component: MSupplier,
+  },
+  {
+    path: "/shipments",
+    component: MShipment,
+  },
+  {
+    path: "/customers",
+    component: MCustomer,
+  },
+  {
+    path: "/admins",
+    component: MAdmin,
   },
   {
     path: "/:pathMatch(.*)*",

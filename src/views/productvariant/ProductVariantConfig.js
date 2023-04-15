@@ -8,24 +8,10 @@ class productvariantConfig {
         this.parentPath = "/products"
         this.columns = [
             {
-                name : "ProductName",
-                title : "Mã sản phẩm",
-                textAlign : "left",
-                type : "text",
-                width : 150,
-            },
-            {
                 name : "Quantity",
                 title : "Số lượng",
                 textAlign : "left",
                 type : "text",
-                width : 150,
-            },
-            {
-                name : "Price",
-                title : "Giá tiền",
-                textAlign : "left",
-                type : "image",
                 width : 150,
             },
             {

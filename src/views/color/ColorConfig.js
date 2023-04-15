@@ -4,7 +4,6 @@ class colorConfig {
         this.tableName = 'Color';
         this.titleForm = "Màu sắc";
         this.formName = enumMISA.formName.color;
-        this.search = false;
         this.columns = [
             {
                 name : "ColorCode",

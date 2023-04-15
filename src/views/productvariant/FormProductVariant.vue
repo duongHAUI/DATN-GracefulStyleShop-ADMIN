@@ -66,7 +66,6 @@
           ref="Quantity"
           name="Quantity"
           :tabIndex="4"
-          dis
           :errorMsg="errorMsgObject?.Quantity"
           :rules="[rules.NOT_EMPTY]"
           @message-error-input="handleBindMessageInput"
@@ -74,14 +73,13 @@
       </div>
       <div class="form__row" style="width: 100%">
         <MInput
-          textField="Giá tiền"
-          v-model="formData.Price"
+          textField="Giá nhập"
+          v-model="formData.PriceSupply"
           :required="true"
-          ref="Price"
-          name="Price"
+          ref="PriceSupply"
+          name="PriceSupply"
           :tabIndex="5"
-          dis
-          :errorMsg="errorMsgObject?.Price"
+          :errorMsg="errorMsgObject?.PriceSupply"
           :rules="[rules.NOT_EMPTY]"
           @message-error-input="handleBindMessageInput"
         />

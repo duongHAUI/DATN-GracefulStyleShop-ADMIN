@@ -4,7 +4,6 @@ class sizeConfig {
         this.tableName = 'Size';
         this.formName = enumMISA.formName.size;
         this.titleForm = "Kích cỡ";
-        this.search = false;
         this.columns = [
             {
                 name : "SizeCode",

@@ -8,9 +8,9 @@ const resources = {
      */
     FORM_MESSAGE: {
       SUCCESS: {
-        ADD: "Thêm mới nhân viên thành công!",
-        EDIT: "Sửa nhân viên thành công!",
-        DELETE: "Xóa nhân viên thành công",
+        ADD: "Thêm mới dữ liệu thành công!",
+        EDIT: "Sửa dữ liệu thành công!",
+        DELETE: "Xóa dữ liệu thành công",
       },
       ERROR: {
         NOT_EMPTY: (name) => `${name} không được để trống.`,
@@ -31,7 +31,7 @@ const resources = {
       PhoneNumber: "Số điện thoại",
       Email: "Email",
       BrandCode: "Mã thương hiệu",
-      BandName: "Tên thương hiệu",
+      BrandName: "Tên thương hiệu",
       ColorCode: "Mã màu",
       ColorName: "Tên màu",
       StarNumber: "Số sao",
@@ -53,14 +53,21 @@ const resources = {
       Description: "Mô tả",
       PublicDate: "Ngày ra mắt",
       ImageLink: "Link ảnh",
-      SalePrice: "Giá bán",
-      SupplyPrice: "Giá nhập",
+      PriceSale: "Giá bán",
+      PriceSupply: "Giá nhập",
       SupplyDate: "Ngày nhập",
       SupplyQuantity: "Số lượng nhập",
       SupplierCode: "Mã nhà cung cấp",
       SupplierName: "Tên nhà cung cấp",
       TypeCode: "Mã loại sản phẩm",
-      TypeName: "Tên loại sản phẩm"
+      TypeName: "Tên loại sản phẩm",
+      ShipmentCode: "Mã phương thức",
+      Method: "Tên phương thức",
+      DateFrom: "Trường dữ liệu",
+      DateTo: "Trường dữ liệu",
+      PriceShip: "Phí ship",
+      FullName: "Tên",
+      Phone: "Số điện thoại"
     },
     /**
      * Các thông báo toast-msg
@@ -85,14 +92,6 @@ const resources = {
         };
         return message;
       },
-    },
-    /**
-     * Tên file
-     */
-    nameFile: {
-      templateImport: "Mau_danh_muc_nhan_vien.xlsx",
-      fileExport: "Danh_sach_nhan_vien.xlsx",
-      fileImportValidate:"Kết quả kiểm tra.xlsx"  
     },
     /**
      * Trạng thái dòng import

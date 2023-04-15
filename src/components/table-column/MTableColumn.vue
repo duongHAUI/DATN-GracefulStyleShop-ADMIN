@@ -7,7 +7,7 @@
     @dblclick="this.$emit('dblclick')"
   >
   <div class="m__e-table-col-over" 
-    :style="{ width: width ?width + 'px' : width  ,textAlign: textAlign,color:color}">
+    :style="{ width: width ?width + 'px' : width  ,textAlign: textAlign,color:color,padding:padding}">
     <slot />
   </div>
   </component>
@@ -41,7 +41,8 @@ export default {
     },
     color:{
       type: String,
-    }
+    },
+    padding:String
   },
 };
 </script>

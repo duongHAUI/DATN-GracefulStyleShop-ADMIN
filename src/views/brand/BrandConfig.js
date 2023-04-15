@@ -4,7 +4,6 @@ class brandConfig {
         this.tableName = 'Brand';
         this.formName = enumMISA.formName.brand;
         this.titleForm = "Nhãn hiệu";
-        this.search = false;
         this.columns = [
             {
                 name : "BrandCode",

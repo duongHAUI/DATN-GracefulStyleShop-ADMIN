@@ -238,6 +238,10 @@ td.m__e-table-col{
     background-color: #e5f3ff;
     transition: 0.3s;
 }
+.m__e-table-row.locked-row > td{
+    background-color: #f2f5f7;
+    transition: 0.3s;
+}
 .m__e-table-col-function-btn{
     cursor: pointer;
     display: flex;

@@ -79,7 +79,7 @@ const common = {
       var keyRule = arrRule[1];
       switch (nameRule) {
         case NOT_EMPTY: {
-          if (!value) return ERROR[nameRule](FORM_FIELD[name]);
+          if (!value && value != 0) return ERROR[nameRule](FORM_FIELD[name]);
           break;
         }
         case UNIQUE: {

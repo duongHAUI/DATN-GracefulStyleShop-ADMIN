@@ -5,15 +5,16 @@ import {reactive} from 'vue'
  */
 const state = reactive({
   form : 0,
-  titleForm : "Màu",
+  titleForm : "",
   isSaveForm : false,
-  nameTable: "Color",
+  nameTable: "",
   idModel : "",
   level : 0,
   parentName :"",
   parentPath  : "",
   isShowForm : false,
   isLoadding : false,
+  mode:1, 
   /**
    * Mảng chứa các toast message
    */

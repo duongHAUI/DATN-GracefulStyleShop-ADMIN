@@ -50,6 +50,15 @@ const enumMISA = {
     // Thêm và cất
     addAndSave : 1,
   },
+   /**
+   * Chế độ
+   */
+   enumMode : {
+    // Xem
+    view: 0,
+    // 
+    fullMode : 1,
+  },
   /**
    * List key code
    */

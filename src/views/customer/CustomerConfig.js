@@ -1,20 +1,21 @@
-import enumMISA from "@/assets/js/enum";
-class supplierConfig {
+import enumH from "@/assets/js/enum";
+class customerConfig {
     constructor() {
-        this.tableName = 'Supplier';
-        this.titleForm = "Nhà cung cấp";
-        this.formName = enumMISA.formName.supplier;
+        this.tableName = 'Customer';
+        this.titleForm = "Khách hàng";
+        this.formName = enumH.formName.customer;
+        this.mode  = enumH.enumMode.view;
         this.columns = [
             {
-                name : "SupplierCode",
-                title : "Mã nhà cung cấp",
+                name : "CustomerName",
+                title : "Tên khách hàng",
                 textAlign : "left",
                 type : "text",
                 width : 150,
             },
             {
-                name : "SupplierName",
-                title : "Tên nhà cung cấp",
+                name : "Email",
+                title : "Email",
                 textAlign : "left",
                 type : "text",
                 width : 150,
@@ -22,15 +23,8 @@ class supplierConfig {
             {
                 name : "Phone",
                 title : "Số điện thoại",
-                textAlign : "left",
-                type : "text",
-                width : 150,
-            },
-            {
-                name : "Address",
-                title : "Địa chỉ",
-                textAlign : "left",
-                type : "text",
+                textAlign : "right",
+                type : "number",
                 width : 150,
             },
             {
@@ -51,5 +45,5 @@ class supplierConfig {
         this.placeholder = "Tìm kiếm ";
     }
   }
-  export default supplierConfig;
+  export default customerConfig;
   

@@ -143,6 +143,9 @@ export default {
     },
   },
   watch: {
+    modelValue : function(){
+      this.date = this.modelValue;
+    }
   },
   computed: {
     /**

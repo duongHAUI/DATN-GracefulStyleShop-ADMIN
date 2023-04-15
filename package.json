@@ -17,10 +17,8 @@
     "tinymce": "^6.4.1",
     "vue": "^3.2.13",
     "vue-click-outside-element": "^1.0.15",
-    "vue-datepicker-next": "^1.0.2",
     "vue-debounce": "^4.0.0",
     "vue-router": "^4.0.13",
-    "vue-upload-component": "^2.8.23",
     "vuejs-paginate-next": "^1.0.2"
   },
   "devDependencies": {
