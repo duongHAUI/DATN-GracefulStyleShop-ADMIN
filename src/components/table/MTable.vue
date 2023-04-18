@@ -2,7 +2,7 @@
   <div class="m__e-fixed-table">
     <table class="m__e-table">
       <tr class="m__e-table-row">
-        <MTableColumn tag="th" className="col-fixed-left">
+        <MTableColumn tag="th" className="col-fixed-left" v-if="$state.delete !== enumMISA.enumDelete.notAllowDelete">
           <MCheckBox
             id="check-all"
             @checkboxSelected="checkboxSelected"
@@ -12,7 +12,7 @@
         <MTableColumn tag="th" textAlign="center" width="40px" padding="unset" className="col-fixed-left">
           STT
         </MTableColumn>
-        <MTableColumn tag="th" className="col-fixed-left">
+        <MTableColumn tag="th" className="col-fixed-left" v-if="$state.lock !== enumMISA.enumLock.notAllowLock">
         </MTableColumn>
         <MTableColumn
           tag="th"
@@ -32,7 +32,7 @@
         :key="index"
         :class="{ active: rowsSelected.includes(row)}"
       >
-        <MTableColumn className="col-fixed-left">
+        <MTableColumn className="col-fixed-left" v-if="$state.delete !== enumMISA.enumDelete.notAllowDelete">
           <MCheckBox
             :id="row[`${tableName}Id`]"
             :checked="rowsSelected.includes(row[`${tableName}Id`])"
@@ -43,7 +43,7 @@
         <MTableColumn tag="td" textAlign="center">
           {{index + 1}}
         </MTableColumn>
-        <MTableColumn tag="td" textAlign="center">
+        <MTableColumn tag="td" textAlign="center" className="cuser-pointer" v-if="$state.lock !== enumMISA.enumLock.notAllowLock">
           <i class="fas fa-lock-open" v-if="row.IsActive || row.IsActive === undefined" @click="lockUpRow(row)"></i>
           <i class="fas fa-lock" v-else @click="lockUpRow(row)"></i>
         </MTableColumn>
@@ -303,5 +303,8 @@ export default {
 <style scoped>
 .locked-row{
   cursor: not-allowed !important ;
+}
+.cuser-pointer{
+  cursor: pointer;
 }
 </style>

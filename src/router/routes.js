@@ -9,6 +9,7 @@ import MSupplier from "@/views/supplier/MSupplier.vue";
 import MShipment from "@/views/shipment/MShipment.vue";
 import MCustomer from "@/views/customer/MCustomer.vue";
 import MAdmin from "@/views/admin/MAdmin.vue";
+import MSupply from "@/views/supply/MSupply.vue";
 
 /**
  * Các routes của page
@@ -53,6 +54,10 @@ const routes = [
   {
     path: "/admins",
     component: MAdmin,
+  },
+  {
+    path: "/supplys",
+    component: MSupply,
   },
   {
     path: "/:pathMatch(.*)*",

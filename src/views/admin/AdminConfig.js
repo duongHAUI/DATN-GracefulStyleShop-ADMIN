@@ -1,9 +1,9 @@
-import enumH from "@/assets/js/enum";
+import enumMISA from "@/assets/js/enum";
 class adminConfig {
     constructor() {
         this.tableName = 'Admin';
         this.titleForm = "Quản trị viên";
-        this.formName = enumH.formName.admin;
+        this.formName = enumMISA.formName.admin;
         this.columns = [
             {
                 name : "FullName",

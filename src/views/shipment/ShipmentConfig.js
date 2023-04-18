@@ -1,9 +1,9 @@
-import enumH from "@/assets/js/enum";
+import enumMISA from "@/assets/js/enum";
 class shipmentConfig {
     constructor() {
         this.tableName = 'Shipment';
         this.titleForm = "Phương thức giao hàng";
-        this.formName = enumH.formName.shipment;
+        this.formName = enumMISA.formName.shipment;
         this.columns = [
             {
                 name : "ShipmentCode",

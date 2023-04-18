@@ -58,6 +58,19 @@ const enumMISA = {
     view: 0,
     // 
     fullMode : 1,
+    //không có tính năng khóa
+  },
+  enumLock : {
+    // Cho phép khóa
+    allowLock: 1,
+    // Không cho phép khóa
+    notAllowLock : 0,
+  },
+  enumDelete : {
+    // Cho phép xoas
+    allowDelete: 1,
+    // Không cho phép xoas
+    notAllowDelete : 0,
   },
   /**
    * List key code

@@ -57,6 +57,12 @@ const constants = {
       path : "/admins",
       name:"Admin"
     },
+    {
+      text: "Thông tin nhập hàng",
+      classIcon: "icon-cash",
+      path : "/supplys",
+      name:"Supply"
+    },
   ],
   /**
    * List item pageSize

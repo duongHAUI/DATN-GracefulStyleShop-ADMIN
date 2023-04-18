@@ -1,10 +1,10 @@
-import enumH from "@/assets/js/enum";
+import enumMISA from "@/assets/js/enum";
 class customerConfig {
     constructor() {
         this.tableName = 'Customer';
         this.titleForm = "Khách hàng";
-        this.formName = enumH.formName.customer;
-        this.mode  = enumH.enumMode.view;
+        this.formName = enumMISA.formName.customer;
+        this.mode  = enumMISA.enumMode.view;
         this.columns = [
             {
                 name : "CustomerName",
