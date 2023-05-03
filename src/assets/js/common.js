@@ -1,6 +1,6 @@
 
 import constants from "./constants";
-import enumMISA from "./enum";
+import enumD from "./enum";
 import resources from "./resource";
 /**
  * Các hàm dùng chung
@@ -36,15 +36,15 @@ const common = {
     var title = "Khác";
     switch (gender) {
       // Nam
-      case enumMISA.enumGender.male:
+      case enumD.enumGender.male:
         title = "Nam";
         break;
       // Nữ
-      case enumMISA.enumGender.female:
+      case enumD.enumGender.female:
         title = "Nữ";
         break;
       // Khác
-      case enumMISA.enumGender.other:
+      case enumD.enumGender.other:
         title = "Khác";
         break;
       default:

@@ -1,9 +1,9 @@
-import enumMISA from "@/assets/js/enum";
+import enumD from "@/assets/js/enum";
 class productvariantConfig {
     constructor() {
         this.tableName = 'ProductVariant';
         this.titleForm = "Sản phẩm";
-        this.formName = enumMISA.formName.productvariant;
+        this.formName = enumD.formName.productvariant;
         this.parentName = "Sản phẩm"
         this.parentPath = "/products"
         this.columns = [

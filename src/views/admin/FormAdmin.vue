@@ -13,47 +13,37 @@
         @message-error-input="handleBindMessageInput"
       />
 
-      <MInput
-        textField="Email"
-        v-model="formData.Email"
-        :required="true"
-        name="Email"
-        ref="Email"
-        :tabIndex="2"
-        :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|100`]"
-        :errorMsg="errorMsgObject?.Email"
-        @message-error-input="handleBindMessageInput"
-      />
       <div class="form__row" style="width: 100%">
         <div class="form__row f-bw" style="width: 48%">
-            <MInput
-          textField="Mật khẩu"
-          v-model="formData.Password"
-          :required="true"
-          name="Password"
-          ref="Password"
-          :tabIndex="3"
-          :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|255`]"
-          :errorMsg="errorMsgObject?.Password"
-          @message-error-input="handleBindMessageInput"/>
+          <MInput
+            textField="Email"
+            v-model="formData.Email"
+            :required="true"
+            name="Email"
+            ref="Email"
+            :tabIndex="2"
+            :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|100`]"
+            :errorMsg="errorMsgObject?.Email"
+            @message-error-input="handleBindMessageInput"
+          />
         </div>
         <div class="form__row f-bw" style="width: 48%">
-        <MInput
-          textField="Số điện thoại"
-          v-model="formData.Phone"
-          :required="true"
-          name="Phone"
-          ref="Phone"
-          type="Number"
-          :tabIndex="4"
-          :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|50`]"
-          :errorMsg="errorMsgObject?.Phone"
-          @message-error-input="handleBindMessageInput"
-        />
-          </div>
+          <MInput
+            textField="Số điện thoại"
+            v-model="formData.Phone"
+            :required="true"
+            name="Phone"
+            ref="Phone"
+            type="Number"
+            :tabIndex="4"
+            :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|50`]"
+            :errorMsg="errorMsgObject?.Phone"
+            @message-error-input="handleBindMessageInput"
+          />
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>

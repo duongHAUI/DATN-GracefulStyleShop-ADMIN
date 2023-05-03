@@ -1,9 +1,9 @@
 import enumD from "@/assets/js/enum";
-class productConfig {
+class orderConfig {
     constructor() {
-        this.tableName = 'Product';
-        this.titleForm = "Sản phẩm";
-        this.formName = enumD.formName.product;
+        this.tableName = 'OrderDetail';
+        this.titleForm = "Đơn hàng";
+        this.formName = enumD.formName.orderdetail;
         this.level = 1;
         this.columns = [
             {
@@ -73,5 +73,5 @@ class productConfig {
         this.placeholder = "Tìm kiếm ";
     }
   }
-  export default productConfig;
+  export default orderConfig;
   

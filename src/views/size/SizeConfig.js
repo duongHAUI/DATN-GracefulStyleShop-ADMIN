@@ -1,8 +1,8 @@
-import enumMISA from "@/assets/js/enum";
+import enumD from "@/assets/js/enum";
 class sizeConfig {
     constructor() {
         this.tableName = 'Size';
-        this.formName = enumMISA.formName.size;
+        this.formName = enumD.formName.size;
         this.titleForm = "Kích cỡ";
         this.columns = [
             {

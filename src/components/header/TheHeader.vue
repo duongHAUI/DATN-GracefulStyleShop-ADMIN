@@ -7,33 +7,61 @@
         @click="toggleSidebarChange"
       ></div>
       <div class="m__header-name">
-        <div class="m__header-name__content">
-          Công ty TNHH Sản Xuất - Thương mại - Dịch vụ Qui Phúc
-        </div>
+        <div class="m__header-name__content"></div>
         <!-- <div class="m__header-name__icon icon-drop"></div> -->
       </div>
     </div>
     <div class="m__header-right">
-      <div class="m__header-notification icon-notification" data-tip="Tính năng chưa phát triển" ></div>
-      <div class="m__header-setting" >
-        <div class="setting__avt" data-tip="Tính năng chưa phát triển" >
+      <div
+        class="m__header-notification icon-notification"
+        data-tip="Tính năng chưa phát triển"
+      ></div>
+      <div class="m__header-setting">
+        <div class="setting__avt" data-tip="Tính năng chưa phát triển">
           <img src="../../assets/img/default-avatar.jpg" alt="avt" />
         </div>
-        <div class="setting__info">
-          <div class="setting__info-name">Nguyễn Văn Dương</div>
-          <div class="setting__info-icon icon-drop"></div>
+        <div class="setting__profile">
+          <div class="setting__info" @click="isShowSettingUser = !isShowSettingUser" >
+            <div class="setting__info-name" ref="accountUser">{{ $state.user?.FullName }}</div>
+            <div class="setting__info-icon icon-drop" ref="accountUser"></div>
+            <div
+              class="header-action_dropdown"
+              v-if="isShowSettingUser"
+              v-click-outside="clickOutSideInfoUser"
+            >
+              <div class="header-dropdown_content">
+                <div class="site_account_panel_list">
+                  <div class="site_account_info">
+                    <div class="site_account_header">
+                      <p class="txt-title">Thông tin tài khoản</p>
+                    </div>
+                    <div class="site_account_inner">
+                      <ul>
+                        <li>
+                          <a href="/account/profile">Tài khoản của tôi</a>
+                        </li>
+                        <li><a @click="logout">Đăng xuất</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import authApi from "@/api/authApi";
 export default {
   name: "TheHeader",
   emits: ["toggle-sidebar"],
   data() {
     return {
       toggleSidebar: true,
+      isShowSettingUser: false,
     };
   },
   methods: {
@@ -43,6 +71,26 @@ export default {
     toggleSidebarChange() {
       this.toggleSidebar = false;
       this.$state.toggleSidebar = false;
+    },
+    async logout() {
+      try {
+        var res = await new authApi().signout(localStorage.getItem("token"));
+        if (res) {
+          localStorage.removeItem("user");
+          localStorage.removeItem("token");
+          this.isShowSettingUser = false;
+          this.$router.push("/auth/signin");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    clickOutSideInfoUser(e) {
+      // eslint-disable-next-line no-debugger
+      debugger
+      if (!this.$refs.accountUser.contains(e.target)) {
+        this.isShowSettingUser = false;
+      }
     },
   },
   /**

@@ -2,7 +2,7 @@
   <div class="m__e-fixed-table">
     <table class="m__e-table">
       <tr class="m__e-table-row">
-        <MTableColumn tag="th" className="col-fixed-left" v-if="$state.delete !== enumMISA.enumDelete.notAllowDelete">
+        <MTableColumn tag="th" className="col-fixed-left" v-if="$state.delete !== enumD.enumDelete.notAllowDelete">
           <MCheckBox
             id="check-all"
             @checkboxSelected="checkboxSelected"
@@ -12,7 +12,7 @@
         <MTableColumn tag="th" textAlign="center" width="40px" padding="unset" className="col-fixed-left">
           STT
         </MTableColumn>
-        <MTableColumn tag="th" className="col-fixed-left" v-if="$state.lock !== enumMISA.enumLock.notAllowLock">
+        <MTableColumn tag="th" className="col-fixed-left" v-if="$state.lock !== enumD.enumLock.notAllowLock">
         </MTableColumn>
         <MTableColumn
           tag="th"
@@ -22,7 +22,7 @@
           :key="index"
           >{{ column.title }}</MTableColumn
         >
-        <MTableColumn tag="th" className="col-fixed-right" v-if="$state.mode !== enumMISA.enumMode.view"
+        <MTableColumn tag="th" className="col-fixed-right" v-if="$state.mode !== enumD.enumMode.view"
           >Chức năng</MTableColumn
         >
       </tr>
@@ -32,7 +32,7 @@
         :key="index"
         :class="{ active: rowsSelected.includes(row)}"
       >
-        <MTableColumn className="col-fixed-left" v-if="$state.delete !== enumMISA.enumDelete.notAllowDelete">
+        <MTableColumn className="col-fixed-left" v-if="$state.delete !== enumD.enumDelete.notAllowDelete">
           <MCheckBox
             :id="row[`${tableName}Id`]"
             :checked="rowsSelected.includes(row[`${tableName}Id`])"
@@ -43,7 +43,7 @@
         <MTableColumn tag="td" textAlign="center">
           {{index + 1}}
         </MTableColumn>
-        <MTableColumn tag="td" textAlign="center" className="cuser-pointer" v-if="$state.lock !== enumMISA.enumLock.notAllowLock">
+        <MTableColumn tag="td" textAlign="center" className="cuser-pointer" v-if="$state.lock !== enumD.enumLock.notAllowLock">
           <i class="fas fa-lock-open" v-if="row.IsActive || row.IsActive === undefined" @click="lockUpRow(row)"></i>
           <i class="fas fa-lock" v-else @click="lockUpRow(row)"></i>
         </MTableColumn>
@@ -54,7 +54,7 @@
           formatColumn(column,row[column.name])
         }}
         </MTableColumn>  
-        <MTableColumn className="col-fixed-right col-center" v-if="$state.mode !== enumMISA.enumMode.view" >
+        <MTableColumn className="col-fixed-right col-center" v-if="$state.mode !== enumD.enumMode.view" >
           <div
             class="m__e-table-col-function-btn"
             ref="btnFunctionMenu"
@@ -97,7 +97,7 @@
     </div>
   </div>
   <!-- Pop-up thông báo khi xóa -->
-  <MPopUpWarn :isShow="isPopUpDelete" @close-pop-up="isPopUpDelete = false">
+  <MPopUpWarn :isShow="isPopUpDelete" @close-pop-up="isPopUpDelete = false" width="450px">
     {{ `Bạn có thực sự muốn xóa không ?` }}
     <template #footer>
       <div class="warning__delete-btn">
@@ -117,7 +117,7 @@ import MButton from "../button/MButton.vue";
 import MCheckBox from "../checkbox/MCheckBox.vue";
 import MPopUpWarn from "../pop-up/MPopUpWarn.vue";
 import MTableColumn from "../table-column/MTableColumn.vue";
-import enumMISA from "@/assets/js/enum";
+import enumD from "@/assets/js/enum";
 import baseApi from "@/api/baseApi";
 export default {
   name: "MTable",
@@ -146,7 +146,7 @@ export default {
       functionLeft: 0, // Tọa dộ left của list chức năng
       isPopUpDelete : false,
       checkedAll : false,
-      enumMISA:enumMISA
+      enumD:enumD
     };
   },
   methods: {
@@ -264,7 +264,7 @@ export default {
       this.$state.isShowForm = true;
     },
     actionRow(row){
-      if(this.$state.form == enumMISA.formName.product){
+      if(this.$state.form == enumD.formName.product){
         localStorage.setItem("parentName",row?.ProductName);
         this.$router.push("/products/"+row.ProductId);
       }else{

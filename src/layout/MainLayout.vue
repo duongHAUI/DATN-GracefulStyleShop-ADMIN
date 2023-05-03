@@ -25,6 +25,8 @@ export default {
     MFormDialog,
     MLoadding
   },
+  mounted(){
+  }
 };
 </script>
 <style scoped>

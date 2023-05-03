@@ -8,6 +8,9 @@ export default {
   name: 'App',
   components: {
     MainLayout
+  },
+  created : async function(){
+    this.$state.getUser();
   }
 }
 </script>

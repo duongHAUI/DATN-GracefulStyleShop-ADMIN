@@ -1,8 +1,8 @@
-import enumMISA from "@/assets/js/enum";
+import enumD from "@/assets/js/enum";
 class brandConfig {
     constructor() {
         this.tableName = 'Brand';
-        this.formName = enumMISA.formName.brand;
+        this.formName = enumD.formName.brand;
         this.titleForm = "Nhãn hiệu";
         this.columns = [
             {

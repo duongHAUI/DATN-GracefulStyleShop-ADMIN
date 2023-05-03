@@ -1,9 +1,9 @@
-import enumMISA from "@/assets/js/enum";
+import enumD from "@/assets/js/enum";
 class shipmentConfig {
     constructor() {
         this.tableName = 'Shipment';
         this.titleForm = "Phương thức giao hàng";
-        this.formName = enumMISA.formName.shipment;
+        this.formName = enumD.formName.shipment;
         this.columns = [
             {
                 name : "ShipmentCode",
@@ -13,7 +13,7 @@ class shipmentConfig {
                 width : 150,
             },
             {
-                name : "Method",
+                name : "ShipmentName",
                 title : "Tên phương thức",
                 textAlign : "left",
                 type : "text",

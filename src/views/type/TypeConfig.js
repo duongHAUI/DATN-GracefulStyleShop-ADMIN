@@ -1,8 +1,8 @@
-import enumMISA from "@/assets/js/enum";
+import enumD from "@/assets/js/enum";
 class typeConfig {
     constructor() {
         this.tableName = 'Type';
-        this.formName = enumMISA.formName.type;
+        this.formName = enumD.formName.type;
         this.titleForm = "Thể loại";
         this.columns = [
             {

@@ -1,12 +1,12 @@
-import enumMISA from "@/assets/js/enum";
+import enumD from "@/assets/js/enum";
 class supplyConfig {
     constructor() {
         this.tableName = 'Supply';
         this.titleForm = "Thông tin nhập hàng";
-        this.formName = enumMISA.formName.supply;
-        this.mode = enumMISA.enumMode.view;
-        this.lock = enumMISA.enumLock.notAllowLock;
-        this.delete = enumMISA.enumDelete.notAllowDelete;
+        this.formName = enumD.formName.supply;
+        this.mode = enumD.enumMode.view;
+        this.lock = enumD.enumLock.notAllowLock;
+        this.delete = enumD.enumDelete.notAllowDelete;
         this.columns = [
             {
                 name : "ProductCode",

@@ -1,9 +1,9 @@
-import enumMISA from "@/assets/js/enum";
+import enumD from "@/assets/js/enum";
 class colorConfig {
     constructor() {
         this.tableName = 'Color';
         this.titleForm = "Màu sắc";
-        this.formName = enumMISA.formName.color;
+        this.formName = enumD.formName.color;
         this.columns = [
             {
                 name : "ColorCode",

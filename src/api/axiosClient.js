@@ -2,7 +2,8 @@ import resources from "@/assets/js/resource";
 import axios from "axios";
 import queryString from "query-string";
 import state from "../store";
-import enumMISA from "../assets/js/enum";
+import enumD from "../assets/js/enum";
+import router from "@/router";
 
 /**
  * Config axios
@@ -17,6 +18,22 @@ const axiosClient = axios.create({
     serialize: (params) => queryString.stringify(params),
   },
 });
+// Xử lý token
+axiosClient.interceptors.request.use(
+  function(config) {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    else{
+      router.push("/auth/signin")
+    }
+    return config;
+  },
+  function(error) {
+    return Promise.reject(error);
+  }
+);
 
 /**
  * Config response
@@ -38,7 +55,7 @@ axiosClient.interceptors.response.use(
       }
     } else if (error.request) {
       // Xử lý các lỗi từ phía client
-      if (error.code === enumMISA.ERROR_REQUEST.ERR_NETWORK) {
+      if (error.code === enumD.ERROR_REQUEST.ERR_NETWORK) {
         toastMessage(resources.vi.errorMessageAPI.ERROR_NETWORK);
       }
     } else {

@@ -10,6 +10,9 @@ import MShipment from "@/views/shipment/MShipment.vue";
 import MCustomer from "@/views/customer/MCustomer.vue";
 import MAdmin from "@/views/admin/MAdmin.vue";
 import MSupply from "@/views/supply/MSupply.vue";
+import MSignin from "@/views/auth/MSignin.vue";
+import MInfoUser from "@/views/profile/MInfoUser.vue";
+
 
 /**
  * Các routes của page
@@ -58,6 +61,14 @@ const routes = [
   {
     path: "/supplys",
     component: MSupply,
+  },
+  {
+    path: "/auth/signin",
+    component: MSignin,
+  },
+  {
+    path: "/account/profile",
+    component: MInfoUser,
   },
   {
     path: "/:pathMatch(.*)*",

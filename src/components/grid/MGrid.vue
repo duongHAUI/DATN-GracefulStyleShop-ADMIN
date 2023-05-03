@@ -3,7 +3,7 @@
     <div class="m-main-content-title">{{getTitle}}</div>
     <div class="m-main-content-btn-add">
       <div @click="onShowForm">
-        <MButton v-if="$state.mode !== enumMISA.enumMode.view">Thêm</MButton>
+        <MButton v-if="$state.mode !== enumD.enumMode.view">Thêm</MButton>
       </div>
       <div
         class="m-main-content-btn-import"
@@ -112,7 +112,7 @@ import MTable from "../table/MTable.vue";
 import baseApi from "@/api/baseApi";
 import MPopUpWarn from "../pop-up/MPopUpWarn.vue";
 import FolderRoutes from '../folder/FolderRoutes.vue';
-import enumMISA from "@/assets/js/enum";
+import enumD from "@/assets/js/enum";
 export default {
   name: "MGrid",
   components: {
@@ -144,7 +144,7 @@ export default {
       isShowActionprocessMutiple: false,
       rowsSelected: [],
       isPopUpDelete: false,
-      enumMISA :enumMISA
+      enumD :enumD
     };
   },
   methods: {
@@ -237,7 +237,7 @@ export default {
       };
     },
     getTitle(){
-      if(this.$state.form == enumMISA.formName.productvariant){
+      if(this.$state.form == enumD.formName.productvariant){
         return localStorage.getItem("parentName") 
       }
       return this.data.titleForm ;

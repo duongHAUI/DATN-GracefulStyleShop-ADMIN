@@ -34,6 +34,24 @@ const state = reactive({
      clearTimeout();
    }, 4000);
   },
+  setUser(user) {
+    // const encodedUser = window.btoa(JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
+    this.user = user;
+  },
+  getUser() {
+    try {
+      const encodedUser = localStorage.getItem("user");
+      if (encodedUser) {
+        const user = JSON.parse(encodedUser);
+        this.user = user;
+      } else {
+        localStorage.removeItem("token");
+      }
+    } catch (error) {
+      localStorage.removeItem("token");
+    }
+  },
   isMask(){
     this.isLoadding = true;
   },

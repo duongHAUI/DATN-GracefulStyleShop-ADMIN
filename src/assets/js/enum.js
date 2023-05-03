@@ -1,4 +1,4 @@
-const enumMISA = {
+const enumD = {
   /**
    * Enum giới tính
    */
@@ -147,4 +147,4 @@ const enumMISA = {
     vote : 18,
   }
 };
-export default enumMISA;
+export default enumD;

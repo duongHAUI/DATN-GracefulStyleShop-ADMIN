@@ -57,7 +57,7 @@
         />
       </div>
       <div class="m__e-form-footer-btn">
-        <div class="m__e-form-btn__left" @click="destroyForm()">
+        <div class="m__e-form-btn__left">
           <MButton
             typeBtn="close"
             :tabIndex="20"
@@ -97,7 +97,7 @@
 import MButton from "../button/MButton.vue";
 import FormColor from "@/views/color/FormColor.vue";
 import FormSize from "@/views/size/FormSize.vue";
-import enumMISA from "@/assets/js/enum";
+import enumD from "@/assets/js/enum";
 import baseApi from "@/api/baseApi";
 import fileApi from "@/api/fileApi";
 import FormBrand from "@/views/brand/FormBrand.vue";
@@ -129,10 +129,10 @@ export default {
   created() {},
   data() {
     return {
-      formNameEnum: enumMISA.formName,
+      formNameEnum: enumD.formName,
       model: {},
       baseApi: new baseApi(this.$state.nameTable),
-      actionButtonForm: enumMISA.enumActionButtonForm, // Chức năng button form
+      actionButtonForm: enumD.enumActionButtonForm, // Chức năng button form
       FileModel : null
     };
   },
@@ -168,7 +168,7 @@ export default {
         this.$state.idModel = "";
         this.$state.isSaveForm = true;
         this.$state.unMask();
-        if (method != enumMISA.enumActionButtonForm.addAndSave) {
+        if (method != enumD.enumActionButtonForm.addAndSave) {
           this.$state.isShowForm = false;
         }
         this.$state.unMask();
@@ -237,3 +237,13 @@ export default {
   },
 };
 </script>
+<style scoped>
+.m-pop-up{
+    background-color: white;
+    position: relative;
+    padding: 24px;
+    border-radius: 4px;
+    min-width: 800px;
+    margin-bottom: 20px;
+}
+</style>
