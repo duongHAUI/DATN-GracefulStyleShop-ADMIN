@@ -8,7 +8,7 @@ class colorConfig {
             {
                 name : "ColorCode",
                 title : "Mã màu",
-                textAlign : "center",
+                textAlign : "left",
                 width : 150,
             },
             {

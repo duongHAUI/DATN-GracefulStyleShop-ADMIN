@@ -4,11 +4,10 @@ class orderConfig {
         this.tableName = 'OrderDetail';
         this.titleForm = "Đơn hàng";
         this.formName = enumD.formName.orderdetail;
-        this.level = 1;
         this.columns = [
             {
-                name : "ProductCode",
-                title : "Mã sản phẩm",
+                name : "OrderCode",
+                title : "Mã đơn hàng",
                 textAlign : "left",
                 type : "text",
                 width : 150,

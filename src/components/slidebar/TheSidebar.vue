@@ -26,6 +26,7 @@
             :class="$state.nameTable == item.name ? 'active' : ''"
             :key="index"
             @click="activeItem(index)"
+            :style="{display :  (item.name != 'Admin'|| $state.user.IsBoss) ? '' : 'none'}"
           >
             <div class="m-menu__list-item-icon" :class="item.classIcon"></div>
             <div class="m-menu__list-item-title menu-item-text">
