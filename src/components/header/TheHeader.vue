@@ -74,10 +74,10 @@ export default {
     },
     async logout() {
       try {
-        var res = await new authApi().signout(localStorage.getItem("token"));
+        var res = await new authApi().signout(localStorage.getItem("token_admin"));
         if (res) {
           localStorage.removeItem("user");
-          localStorage.removeItem("token");
+          localStorage.removeItem("token_admin");
           this.isShowSettingUser = false;
           this.$router.push("/auth/signin");
         }

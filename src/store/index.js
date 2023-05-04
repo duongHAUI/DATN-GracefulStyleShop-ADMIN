@@ -46,10 +46,10 @@ const state = reactive({
         const user = JSON.parse(encodedUser);
         this.user = user;
       } else {
-        localStorage.removeItem("token");
+        localStorage.removeItem("token_admin");
       }
     } catch (error) {
-      localStorage.removeItem("token");
+      localStorage.removeItem("token_admin");
     }
   },
   isMask(){

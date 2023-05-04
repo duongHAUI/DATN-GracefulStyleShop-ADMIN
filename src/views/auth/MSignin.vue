@@ -70,7 +70,7 @@ export default {
         this.$state.isMask();
         const res = await new authApi().signin(this.modelSignin);
         if (!res.ErrorCode) {
-          localStorage.setItem("token", res.Data.Token);
+          localStorage.setItem("token_admin", res.Data.Token);
           this.$state.setUser(res.Data.Admin);
           this.$router.push("/");
         }
@@ -113,8 +113,8 @@ export default {
   height: 100vh;
   left: 0;
   top: 0;
-  background-color: rgb(162, 161, 161);
-}
+  background-color: rgb(234, 251, 234);
+} 
 .customers_accountForm {
   max-width: 558px;
   margin: 150px auto 50px;
