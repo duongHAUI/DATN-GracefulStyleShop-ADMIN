@@ -195,6 +195,20 @@ td.m__e-table-col{
     white-space: nowrap;
     overflow: hidden;
 }
+.paid{
+    padding: 2px 4px;
+    border-radius: 4px;
+    width: max-content;
+    color: var(--btn-primary);
+    font-weight: bold;
+}
+.unpaid{
+    padding: 2px 4px;
+    border-radius: 4px;
+    width: max-content;
+    color: rgb(248, 62, 62);
+    font-weight: bold;
+}
 .m__e-table-col {
     padding: 8px 16px;
     border: 1px solid #bbb;

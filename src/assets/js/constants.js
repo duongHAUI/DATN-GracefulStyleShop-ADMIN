@@ -4,6 +4,12 @@ const constants = {
    */
   SidebarMenu: [
     {
+      text: "Trang chủ",
+      classIcon: "icon-cash",
+      path : "/",
+      name:"Home"
+    },
+    {
       text: "Sản phẩm",
       classIcon: "icon-overview",
       path : "/products",
@@ -62,6 +68,12 @@ const constants = {
       classIcon: "icon-cash",
       path : "/supplys",
       name:"Supply"
+    },
+    {
+      text: "Quản lý đơn hàng",
+      classIcon: "icon-cash",
+      path : "/orders",
+      name:"Order"
     },
   ],
   /**

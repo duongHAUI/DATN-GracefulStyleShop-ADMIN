@@ -6,7 +6,7 @@
     :class="className"
     @dblclick="this.$emit('dblclick')"
   >
-  <div class="m__e-table-col-over" 
+  <div class="m__e-table-col-over"  :class="classStyle"
     :style="{ width: width ?width + 'px' : width  ,textAlign: textAlign,color:color,padding:padding}">
     <slot />
   </div>
@@ -42,7 +42,8 @@ export default {
     color:{
       type: String,
     },
-    padding:String
+    padding:String,
+    classStyle : String
   },
 };
 </script>

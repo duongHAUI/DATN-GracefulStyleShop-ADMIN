@@ -5,7 +5,7 @@
 </template>
 <script>
 import MGrid from '@/components/grid/MGrid.vue';
-import ProductConfig from "@/views/product/ProductConfig.js";
+import OrderConfig from "@/views/order/OrderConfig.js";
 import mixinPage from "@/mixins/mixinPage.js";
 export default {
     name:"MOrder",
@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             // eslint-disable-next-line vue/no-reserved-keys
-            _data : new ProductConfig()
+            _data : new OrderConfig()
         }
     },
 }

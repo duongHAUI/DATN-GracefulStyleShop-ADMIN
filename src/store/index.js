@@ -57,7 +57,14 @@ const state = reactive({
   },
   unMask(){
     this.isLoadding = false;
-  }
+  },
+  formatPrice(price) {
+    if (!price) return "";
+    return new Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    }).format(price);
+  },
 });
 
 export default {

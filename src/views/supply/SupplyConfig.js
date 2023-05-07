@@ -55,7 +55,7 @@ class supplyConfig {
                 title : "Giá nhập",
                 textAlign : "right",
                 type : "number",
-                width : 150,
+                width : 100,
             },
             {
                 name : "SupplierName",

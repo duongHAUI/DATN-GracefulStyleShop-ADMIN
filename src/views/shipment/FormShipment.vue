@@ -12,7 +12,6 @@
         :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|20`]"
         @message-error-input="handleBindMessageInput"
       />
-
       <MInput
         textField="Tên phương thức"
         v-model="formData.Method"

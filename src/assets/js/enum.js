@@ -145,6 +145,20 @@ const enumD = {
     supply : 15,
     type : 16,
     vote : 18,
-  }
+  },
+  enumStatusOrder:{
+    TatCa : 0,
+    ChoXacNhan : 1,
+    DaXacNhan : 2,
+    DangGiao : 3,
+    DaNhanHang: 4,
+    HoanThanh  :5,
+    DaHuy : 6,
+    TraHang : 7
+  },
+  paymentMethod :{
+    TTKLH : 1 , // thanh toán khi lấy hàng,
+    ONLINE : 2, //Thẻ ATM 
+  },
 };
 export default enumD;

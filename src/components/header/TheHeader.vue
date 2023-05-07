@@ -86,8 +86,6 @@ export default {
       }
     },
     clickOutSideInfoUser(e) {
-      // eslint-disable-next-line no-debugger
-      debugger
       if (!this.$refs.accountUser.contains(e.target)) {
         this.isShowSettingUser = false;
       }

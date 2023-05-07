@@ -1,6 +1,5 @@
 .m-input-component{
     width: 100%;
-    
 }
 .m-input-component.error .m-input{
     border: 1px solid red;

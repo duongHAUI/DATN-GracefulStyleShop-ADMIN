@@ -1,4 +1,3 @@
-import MError from "@/views/MError.vue";
 import MColor from "@/views/color/MColor.vue";
 import MSize from "@/views/size/MSize.vue";
 import MBrand from "@/views/brand/MBrand.vue";
@@ -12,12 +11,19 @@ import MAdmin from "@/views/admin/MAdmin.vue";
 import MSupply from "@/views/supply/MSupply.vue";
 import MSignin from "@/views/auth/MSignin.vue";
 import MInfoUser from "@/views/profile/MInfoUser.vue";
+import MOrder from "@/views/order/MOrder.vue";
+import MOrderDetail from "@/views/orderdetail/MOrderDetail.vue";
+import MHome from "@/views/home/MHome.vue";
 
 
 /**
  * Các routes của page
  */
 const routes = [
+  {
+    path: "/",
+    component: MHome,
+  },
   {
     path: "/products",
     component: MProduct,
@@ -63,6 +69,14 @@ const routes = [
     component: MSupply,
   },
   {
+    path: "/orders",
+    component: MOrder,
+  },
+  {
+    path: "/orderdetails/:id",
+    component: MOrderDetail,
+  },
+  {
     path: "/auth/signin",
     component: MSignin,
   },
@@ -72,7 +86,7 @@ const routes = [
   },
   {
     path: "/:pathMatch(.*)*",
-    component: MError,
+    component: MHome,
   },
 ];
 

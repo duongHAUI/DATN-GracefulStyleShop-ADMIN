@@ -10,6 +10,7 @@
   "dependencies": {
     "@tinymce/tinymce-vue": "^5.1.0",
     "@vuepic/vue-datepicker": "^3.6.4",
+    "apexcharts": "^3.40.0",
     "axios": "^1.2.2",
     "core-js": "^3.8.3",
     "debounce": "^1.2.1",
@@ -19,6 +20,7 @@
     "vue-click-outside-element": "^1.0.15",
     "vue-debounce": "^4.0.0",
     "vue-router": "^4.0.13",
+    "vue3-apexcharts": "^1.4.1",
     "vuejs-paginate-next": "^1.0.2"
   },
   "devDependencies": {

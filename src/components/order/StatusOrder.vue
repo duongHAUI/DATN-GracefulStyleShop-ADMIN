@@ -1,23 +1,16 @@
 <template>
   <div
     :style="{
-      marginBottom: errorMsg ? '32px' : marginBottom ? marginBottom : '24px',
       width: width,
     }"
     class="m-input-component"
-    :class="{ error: errorMsg }"
-    v-click-outside="() => (isShowHideList = false)"
   >
-    <label for="m-input" class="m-lable"
-      >{{ textField
-      }}<span>{{ required && textField ? " *" : "" }}</span></label
-    >
-    <div class="m-input-main m-input-main-cbb">
+    <div class="m-input-main">
       <input
         :ref="name"
         type="text"
         :tabindex="tabIndex"
-        :readonly="isReadonly"
+        :readonly="true"
         class="m-input"
         v-model="textSelected"
         @input="onSearchItem"
@@ -25,21 +18,8 @@
         @keydown="inputOnKeyDown"
         @focus="inputFocus"
         @blur="inputBlur"
-      />
-      <p class="m-input__error-msg">{{ errorMsg }}</p>
-      <div
-        class="m-combobox__btn"
         @click="onToggleList"
-        @keydown="inputOnKeyDown"
-      >
-        <div
-          class="m-combobox-icon"
-          :class="icon"
-          :style="{
-            transform: isShowHideList ? 'rotate(180deg)' : 'rotate(0)',
-          }"
-        ></div>
-      </div>
+      />
       <div
         class="m-combobox-list"
         :style="{ marginTop: '-' + locationSize + 'px' }"
@@ -56,7 +36,7 @@
           }"
           @mousedown="itemSelected(item, index)"
         >
-          <div style="display:flex">
+          <div style="display: flex">
             <div class="m-combobox-item-name">{{ item[propName] }}</div>
           </div>
         </li>
@@ -66,18 +46,17 @@
 </template>
 <script>
 import enumD from "@/assets/js/enum";
-import common from "@/assets/js/common";
-import resources from "@/assets/js/resource";
+import orderApi from "@/api/orderApi";
+
 export default {
-  name: "MCombobox",
+  name: "StatusOrder",
   emits: ["update:modelValue", "message-error-input"],
   props: {
-    data: Array,
     propValue: String,
     propName: String,
     modelValue: [String, Number],
     textField: String,
-    propCode : String,
+    propCode: String,
     name: String,
     required: Boolean,
     isReadonly: Boolean,
@@ -104,6 +83,7 @@ export default {
       type: String,
       default: "icon-drop",
     },
+    orderId: String,
   },
   data() {
     return {
@@ -114,9 +94,36 @@ export default {
       // indexItemSelected: null, // Vị trí nhấn phím
       textItemSelected: null, // Text được chọn
       locationSize: 0, // Text được chọn
+      data: [
+        {
+          Status: 1,
+          Title: "Chờ xác nhận",
+        },
+        {
+          Status: 2,
+          Title: "Xác nhận",
+        },
+        {
+          Status: 3,
+          Title: "Đang giao",
+        },
+        {
+          Status: 4,
+          Title: "Đã nhận hàng",
+        },
+        {
+          Status: 5,
+          Title: "Hoàn thành",
+        },
+        {
+          Status: 6,
+          Title: "Hủy",
+        },
+      ],
     };
   },
   created() {
+    this.dataSearch = this.data;
     // Hiển thị mặc định
     this.setItemSelected();
     // Xử lý nếu list hiện ở trên
@@ -129,7 +136,7 @@ export default {
      * Hàm ẩn hiện list combobox
      */
     onToggleList() {
-      this.isShowHideList = !this.isShowHideList;
+      this.isShowHideList = true;
       if (!this.isShowHideList) this.textSelected = this.textItemSelected;
       this.dataSearch = this.data;
       if (this.textSelected) {
@@ -142,12 +149,18 @@ export default {
     /**
      * Hàm chọn item hiển thị lên input
      */
-    itemSelected(item, index) {
-      this.textSelected = item[this.propName];
-      this.textItemSelected = item[this.propName];
-      this.isShowHideList = false;
-      this.$emit("update:modelValue", item[this.propValue]);
-      this.indexItemSelected = index;
+    async itemSelected(item, index) {
+      const res = await new orderApi().updateStatus({
+        Status: item[this.propValue],
+        OrderId: this.orderId,
+      });
+      if (res) {
+        this.textSelected = item[this.propName];
+        this.textItemSelected = item[this.propName];
+        this.isShowHideList = false;
+        this.$emit("update:modelValue", item[this.propValue]);
+        this.indexItemSelected = index;
+      }
     },
     /**
      * Hàm set item được chọn khi truyền vào
@@ -174,20 +187,20 @@ export default {
     /**
      * Bắt sự kiện focus
      */
-    inputFocus(){
+    inputFocus() {
       this.dataSearch = this.data;
       this.isShowHideList = true;
     },
     /**
      * Bắt sự kiện blur
      */
-    inputBlur(){
+    inputBlur() {
       this.isShowHideList = false;
     },
     /**
      * Hàm xử lý bàn phím
      */
-    inputOnKeyDown(event) {
+    async inputOnKeyDown(event) {
       switch (event.keyCode) {
         // Nhấn phím enter
         case enumD.KEY_CODE.ENTER:
@@ -199,7 +212,7 @@ export default {
             // this.indexItemSelected = this.dataSearch.findIndex(
             //   (x) => x[this.propValue] == item[me.propValue]
             // );
-            this.itemSelected(item, this.indexItemSelected);
+            await this.itemSelected(item, this.indexItemSelected);
             me.isShowHideList = false;
           }
           break;
@@ -238,30 +251,6 @@ export default {
       }
     },
     /**
-     * Check vaidate theo rules truyen vao
-     */
-    checkValidate() {
-      if (this.rules.length != 0) {
-        var msgErrorInput;
-        if (
-          this.textSelected &&
-          this.data.find((x) => x[this.propName] == this.textSelected) == null
-        ) {
-          // Lấy tên chuẩn tiếng việt của đối tượng
-          const name = resources.vi.FORM_FIELD[this.name];
-          msgErrorInput = resources.vi.FORM_MESSAGE.ERROR.NOT_EXIST(name);
-        } else {
-          msgErrorInput = common.inputValidation(
-            this.rules,
-            this.name,
-            this.modelValue
-          );
-        }
-
-        this.$emit("message-error-input", this.name, msgErrorInput);
-      }
-    },
-    /**
      * Hàm focus input
      */
     onFocus() {
@@ -272,7 +261,7 @@ export default {
     /**
      * Phát hiện sự thay đổi của phòng ban
      */
-    modelValue() {
+    modelValue: function() {
       if (this.modelValue) {
         this.setItemSelected();
         this.dataSearch = this.data;
@@ -280,7 +269,7 @@ export default {
         this.textSelected = "";
       }
     },
-    data(){
+    data() {
       this.setItemSelected();
     },
     /**
@@ -296,5 +285,14 @@ export default {
 </script>
 
 <style scoped>
-@import url(./combobox.css);
+.m-input-main {
+  position: unset;
+}
+.m-combobox-list {
+  width: 168px;
+  top: unset !important;
+}
+.m-input{
+  color: red !important;
+}
 </style>

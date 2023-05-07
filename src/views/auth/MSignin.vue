@@ -62,8 +62,6 @@ export default {
   methods: {
     async registerSubmit() {
       try {
-        // eslint-disable-next-line no-debugger
-        debugger
         if (!this.checkValidateFormSubmit()) {
           return;
         }

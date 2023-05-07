@@ -35,8 +35,6 @@ export default {
   },
   components: {},
   created(){
-    // eslint-disable-next-line no-debugger
-    debugger
     this.images = this.dataImages ? this.dataImages : [] ;
     this.files = Array(!this.dataImages?.length ? 0 : this.dataImages?.length).fill(false);
   },
@@ -94,8 +92,6 @@ export default {
   },
   watch:{
     dataImages:function(){
-      // eslint-disable-next-line no-debugger
-      debugger
       if(!this.images?.length > 0){
         this.images = this.dataImages ? this.dataImages : [] ;
       }

@@ -64,6 +64,24 @@ const common = {
         }).format(salary)
       : "";
   },
+  getTitleStatusOrder(status) {
+    switch (status) {
+      case enumD.enumStatusOrder.ChoXacNhan:
+        return "Chờ xác nhận";
+      case enumD.enumStatusOrder.ChoLayHang:
+        return "Chờ lấy hàng";
+      case enumD.enumStatusOrder.DangGiao:
+        return "Đang giao";
+      case enumD.enumStatusOrder.DaNhanHang:
+        return "Đã nhận hàng";
+      case enumD.enumStatusOrder.HoanThanh:
+        return "Hoàn thành";
+      case enumD.enumStatusOrder.DaHuy:
+        return "Đã hủy";
+      case enumD.enumStatusOrder.TraHang:
+        return "Trả hàng";
+    }
+  },
   /**
    * Hàm validate input
    */
