@@ -17,9 +17,11 @@
     position: absolute;
     cursor: pointer;
 }
-.sidebar__header-brand__logo{
-    height: 32px;
+.sidebar__header-brand__logo {
+    height: 167px;
     padding-left: 32px;
+    width: 177px;
+    margin-left: -19px;
 }
 /* m-menu__list */
 .m-menu{

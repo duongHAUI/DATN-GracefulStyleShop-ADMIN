@@ -36,12 +36,12 @@ const state = reactive({
   },
   setUser(user) {
     // const encodedUser = window.btoa(JSON.stringify(user));
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("user_admin", JSON.stringify(user));
     this.user = user;
   },
   getUser() {
     try {
-      const encodedUser = localStorage.getItem("user");
+      const encodedUser = localStorage.getItem("user_admin");
       if (encodedUser) {
         const user = JSON.parse(encodedUser);
         this.user = user;

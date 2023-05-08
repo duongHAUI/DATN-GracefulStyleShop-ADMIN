@@ -4,92 +4,52 @@
       <div class="card">
         <div class="card-block">
           <div class="row align-items-center">
-            <div class="col-8">
-              <h4 class="text-c-yellow f-w-600">$30200</h4>
-              <h6 class="text-muted m-b-0">All Earnings</h6>
-            </div>
-            <div class="col-4 text-right">
-              <i class="feather icon-bar-chart f-28"></i>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer bg-c-yellow">
-          <div class="row align-items-center">
-            <div class="col-9">
-              <p class="text-white m-b-0">% change</p>
-            </div>
-            <div class="col-3 text-right">
-              <i class="feather icon-trending-up text-white f-16"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-block">
-          <div class="row align-items-center">
-            <div class="col-8">
-              <h4 class="text-c-yellow f-w-600">$30200</h4>
-              <h6 class="text-muted m-b-0">Doanh thu</h6>
-            </div>
-            <div class="col-4 text-right">
-              <i class="feather icon-bar-chart f-28"></i>
-            </div>
+             <h4 class="text-c-yellow f-w-600">{{$state.formatPrice(statisticDefault.Revenue)}}</h4>
+            
           </div>
         </div>
         <div class="card-footer bg-c-green">
-          <div class="row align-items-center">
-            <div class="col-9">
-              <p class="text-white m-b-0">% change</p>
-            </div>
-            <div class="col-3 text-right">
-              <i class="feather icon-trending-up text-white f-16"></i>
-            </div>
+          <div class="align-items-center">
+           <i class="fa-solid fa-dollar-sign"></i> Doanh thu
           </div>
         </div>
       </div>
       <div class="card">
         <div class="card-block">
           <div class="row align-items-center">
-            <div class="col-8">
-              <h4 class="text-c-yellow f-w-600">$30200</h4>
-              <h6 class="text-muted m-b-0">Đơn hàng</h6>
-            </div>
-            <div class="col-4 text-right">
-              <i class="feather icon-bar-chart f-28"></i>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer bg-c-pink">
-          <div class="row align-items-center">
-            <div class="col-9">
-              <p class="text-white m-b-0">Sản phẩm</p>
-            </div>
-            <div class="col-3 text-right">
-              <i class="feather icon-trending-up text-white f-16"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-block">
-          <div class="row align-items-center">
-            <div class="col-8">
-              <h4 class="text-c-yellow f-w-600">$30200</h4>
-              <h6 class="text-muted m-b-0">Khách hàng</h6>
-            </div>
-            <div class="col-4 text-right">
-              <i class="feather icon-bar-chart f-28"></i>
-            </div>
+            <h4 class="text-c-yellow f-w-600">{{statisticDefault.OrderNumber}}</h4>
+           
           </div>
         </div>
         <div class="card-footer bg-c-blue">
+          <div class="align-items-center">
+            <i class="fa-solid fa-receipt"></i>Đơn hàng
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-block">
           <div class="row align-items-center">
-            <div class="col-9">
-              <p class="text-white m-b-0">% change</p>
-            </div>
-            <div class="col-3 text-right">
-              <i class="feather icon-trending-up text-white f-16"></i>
-            </div>
+             <h4 class="text-c-yellow f-w-600">{{statisticDefault.ProductNumber}}</h4>
+            
+          </div>
+        </div>
+        <div class="card-footer bg-c-pink">
+          <div class="align-items-center">
+              <i class="fa-solid fa-shirt"></i>Sản phẩm
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-block">
+          <div class="row align-items-center">
+            <h4 class="text-c-yellow f-w-600">{{statisticDefault.CustomerNumber}}</h4>
+            
+          </div>
+        </div>
+        <div class="card-footer bg-c-yellow">
+          <div class="align-items-center">
+          <i class="fa-solid fa-users"></i> Khách hàng
           </div>
         </div>
       </div>
@@ -113,20 +73,26 @@
       </div>
       <div></div>
     </div>
+    <!-- Đơn hàng -->
+    
   </div>
 </template>
 <script>
 import VueApexCharts from "vue3-apexcharts";
+import statisticApi from "@/api/statisticApi"
 export default {
   name: "MHome",
   components: {
     VueApexCharts,
   },
-  created(){
+  created :async function(){
     this.$state.nameTable = "Home";
+    const res = await new statisticApi().StatisticDefault();
+    this.statisticDefault = res;
   },
   data: function () {
     return {
+      statisticDefault : {},
       options1: {
         chart: {
           id: "vuechart-example",
@@ -170,12 +136,12 @@ export default {
           width: 300,
           type: 'donut',
         },
-        labels: ["Apple", "Samsung", "Tablet", "Xiaome"],
+        labels: ["Áo Polo cổ vải trơn C9POL004K", "Áo T-Shirt nữ cổ tròn dáng ôm C9TSH503M", "Áo T-Shirt nữ cổ leo dài tay I9TSH621L", "Quần Tất Nữ Siêu Ấm 240D C9TIG004D"],
         responsive: [{
           breakpoint: 2000,
           options: {
             chart: {
-              width: 400
+              width: 500
             },
             legend: {
               position: 'right'
@@ -187,9 +153,12 @@ export default {
   },
 };
 </script>
-<style>
-@import url(./home.css);
+<style scoped>
 .m-main-content{
-  background-color: rgba(127, 255, 212, 0.436) !important;
+  background-color: rgba(117, 251, 206, 0.436) !important;
 }
+.home-char{
+  margin-top: 24px;
+}
+@import url(./home.css);
 </style>

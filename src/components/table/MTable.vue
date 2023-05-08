@@ -97,6 +97,7 @@
               getActionTile
             }}</span>
             <div
+            v-if="$state.nameTable != 'Order'"
               class="m__e-table-col-icon"
               v-click-outside="clickOutSideFunction"
               ref="btnFunction"
@@ -344,9 +345,7 @@ export default {
         localStorage.setItem("parentName", row?.ProductName);
         this.$router.push("/products/" + row.ProductId);
       }
-      // eslint-disable-next-line no-debugger
-      debugger
-      if (this.$state.form == enumD.formName.order) {
+      else if (this.$state.form == enumD.formName.order) {
         this.$router.push("/orderdetails/" + row?.OrderId);
       } else {
         this.updateRows(row[`${this.$state.tableName}Id`]);

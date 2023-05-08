@@ -289,10 +289,10 @@ export default {
   position: unset;
 }
 .m-combobox-list {
-  width: 168px;
+  width: 150px;
   top: unset !important;
 }
 .m-input{
-  color: red !important;
+  color: rgb(0, 0, 255) !important;
 }
 </style>
