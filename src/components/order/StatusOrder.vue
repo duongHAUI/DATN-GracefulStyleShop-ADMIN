@@ -18,7 +18,6 @@
         @keydown="inputOnKeyDown"
         @focus="inputFocus"
         @blur="inputBlur"
-        @click="onToggleList"
       />
       <div
         class="m-combobox-list"
@@ -136,6 +135,8 @@ export default {
      * Hàm ẩn hiện list combobox
      */
     onToggleList() {
+      // eslint-disable-next-line no-debugger
+      debugger
       this.isShowHideList = true;
       if (!this.isShowHideList) this.textSelected = this.textItemSelected;
       this.dataSearch = this.data;
@@ -188,8 +189,12 @@ export default {
      * Bắt sự kiện focus
      */
     inputFocus() {
+      // eslint-disable-next-line no-debugger
+      debugger
       this.dataSearch = this.data;
-      this.isShowHideList = true;
+      if(this.modelValue != 6 && this.modelValue != 5){
+        this.isShowHideList = true;
+      }
     },
     /**
      * Bắt sự kiện blur
