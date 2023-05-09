@@ -257,3 +257,9 @@
 	width: 11px;
 	height: 13px;
 }
+/*Tải file template */
+.sprite {
+	background: url('../../img/Sprites.64af8f61.svg')no-repeat -707px -361px;
+	width: 11px;
+	height: 13px;
+}

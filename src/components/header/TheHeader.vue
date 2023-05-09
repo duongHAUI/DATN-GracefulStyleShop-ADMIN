@@ -76,7 +76,7 @@ export default {
       try {
         var res = await new authApi().signout(localStorage.getItem("token_admin"));
         if (res) {
-          localStorage.removeItem("user");
+          localStorage.removeItem("user_admin");
           localStorage.removeItem("token_admin");
           this.isShowSettingUser = false;
           this.$router.push("/auth/signin");
