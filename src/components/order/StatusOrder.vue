@@ -135,8 +135,6 @@ export default {
      * Hàm ẩn hiện list combobox
      */
     onToggleList() {
-      // eslint-disable-next-line no-debugger
-      debugger
       this.isShowHideList = true;
       if (!this.isShowHideList) this.textSelected = this.textItemSelected;
       this.dataSearch = this.data;
@@ -189,8 +187,6 @@ export default {
      * Bắt sự kiện focus
      */
     inputFocus() {
-      // eslint-disable-next-line no-debugger
-      debugger
       this.dataSearch = this.data;
       if(this.modelValue != 6 && this.modelValue != 5){
         this.isShowHideList = true;

@@ -6,6 +6,7 @@
     box-shadow: 0px 9px 38px -8px rgba(0,0,0,0.23);
     height: var(--height-menu);
     width: 100%;
+    z-index: 10;
 }
 
 /* start header */

@@ -4,21 +4,23 @@
       <div class="card">
         <div class="card-block">
           <div class="row align-items-center">
-             <h4 class="text-c-yellow f-w-600">{{$state.formatPrice(statisticDefault.Revenue)}}</h4>
-            
+            <h4 class="text-c-yellow f-w-600">
+              {{ $state.formatPrice(statisticDefault.Revenue) }}
+            </h4>
           </div>
         </div>
         <div class="card-footer bg-c-green">
           <div class="align-items-center">
-           <i class="fa-solid fa-dollar-sign"></i> Doanh thu
+            <i class="fa-solid fa-dollar-sign"></i> Doanh thu
           </div>
         </div>
       </div>
       <div class="card">
         <div class="card-block">
           <div class="row align-items-center">
-            <h4 class="text-c-yellow f-w-600">{{statisticDefault.OrderNumber}}</h4>
-           
+            <h4 class="text-c-yellow f-w-600">
+              {{ statisticDefault.OrderNumber }}
+            </h4>
           </div>
         </div>
         <div class="card-footer bg-c-blue">
@@ -30,26 +32,28 @@
       <div class="card">
         <div class="card-block">
           <div class="row align-items-center">
-             <h4 class="text-c-yellow f-w-600">{{statisticDefault.ProductNumber}}</h4>
-            
+            <h4 class="text-c-yellow f-w-600">
+              {{ statisticDefault.ProductNumber }}
+            </h4>
           </div>
         </div>
         <div class="card-footer bg-c-pink">
           <div class="align-items-center">
-              <i class="fa-solid fa-shirt"></i>Sản phẩm
+            <i class="fa-solid fa-shirt"></i>Sản phẩm
           </div>
         </div>
       </div>
       <div class="card">
         <div class="card-block">
           <div class="row align-items-center">
-            <h4 class="text-c-yellow f-w-600">{{statisticDefault.CustomerNumber}}</h4>
-            
+            <h4 class="text-c-yellow f-w-600">
+              {{ statisticDefault.CustomerNumber }}
+            </h4>
           </div>
         </div>
         <div class="card-footer bg-c-yellow">
           <div class="align-items-center">
-          <i class="fa-solid fa-users"></i> Khách hàng
+            <i class="fa-solid fa-users"></i> Khách hàng
           </div>
         </div>
       </div>
@@ -74,25 +78,39 @@
       <div></div>
     </div>
     <!-- Đơn hàng -->
-    
   </div>
 </template>
 <script>
 import VueApexCharts from "vue3-apexcharts";
-import statisticApi from "@/api/statisticApi"
+import statisticApi from "@/api/statisticApi";
 export default {
   name: "MHome",
   components: {
     VueApexCharts,
   },
-  created :async function(){
+  created: async function () {
     this.$state.nameTable = "Home";
-    const res = await new statisticApi().StatisticDefault();
+    let res = await new statisticApi().StatisticDefault();
     this.statisticDefault = res;
+
+    res = await new statisticApi().SellingProductToMonthNow({
+      Year: new Date().getFullYear(),
+      Month: new Date().getMonth() + 1,
+    });
+    // eslint-disable-next-line no-debugger
+    debugger
+    res.forEach((product) => {
+      this.options2.labels.push(product.ProductName);
+    });
+    const totalQuantity = res.reduce((acc, cur) => acc + cur.totalQuantity, 0);
+    res.forEach((product) => {
+      const percentage = (product.totalQuantity / totalQuantity) * 100;
+      this.series2.push(percentage);
+    });
   },
   data: function () {
     return {
-      statisticDefault : {},
+      statisticDefault: {},
       options1: {
         chart: {
           id: "vuechart-example",
@@ -114,13 +132,13 @@ export default {
           ],
         },
         title: {
-              text: 'Doanh thu theo năm',
-              floating: true,
-              align: 'center',
-              style: {
-                color: '#444'
-              }
-            }
+          text: "Doanh thu theo năm",
+          floating: true,
+          align: "center",
+          style: {
+            color: "#444",
+          },
+        },
       },
       series1: [
         {
@@ -129,36 +147,44 @@ export default {
         },
       ],
 
-
-      series2: [44, 55, 41, 17],
+      series2: [],
       options2: {
         chart: {
-          width: 300,
-          type: 'donut',
+          width: 400,
+          type: "donut",
         },
-        labels: ["Áo Polo cổ vải trơn C9POL004K", "Áo T-Shirt nữ cổ tròn dáng ôm C9TSH503M", "Áo T-Shirt nữ cổ leo dài tay I9TSH621L", "Quần Tất Nữ Siêu Ấm 240D C9TIG004D"],
-        responsive: [{
-          breakpoint: 2000,
-          options: {
-            chart: {
-              width: 500
+        labels: [],
+        responsive: [
+          {
+            breakpoint: 2000,
+            options: {
+              chart: {
+                width: 600,
+              },
+              legend: {
+                position: "right",
+              },
             },
-            legend: {
-              position: 'right'
-            }
-          }
-        }],
+          },
+        ],
       },
     };
   },
 };
 </script>
 <style scoped>
-.m-main-content{
+.m-main-content {
   background-color: rgba(117, 251, 206, 0.436) !important;
 }
-.home-char{
+.home-char {
   margin-top: 24px;
+  width: 100%;
+}
+.char-right{
+  flex: 1
+}
+.char-left{
+  flex: 1
 }
 @import url(./home.css);
 </style>

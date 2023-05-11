@@ -81,6 +81,7 @@
             icon="icon-drop-page-black"
             :locationList="1"
             :isReadonly="true"
+            @update:modelValue="changePageSizePaginate"
           />
         </div>
         <MPaginate :pageCount="totalPageNumber" @change="eventHandlePaginate" />
@@ -204,6 +205,12 @@ export default {
     async eventHandlePaginate(pageNumber) {
       this.$state.isMask();
       this.pageNumber = pageNumber;
+      setTimeout(async () => {
+        await this.getData();
+      }, 500); // delay
+    },
+    changePageSizePaginate(){
+     this.$state.isMask();
       setTimeout(async () => {
         await this.getData();
       }, 500); // delay

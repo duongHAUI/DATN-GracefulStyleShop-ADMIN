@@ -51,7 +51,7 @@ axiosClient.interceptors.response.use(
     if (error.response) {
       // Xử lý các lỗi từ phía server
       if (error.response.status === 401) {
-        toastMessage(resources.vi.errorMessageAPI.ERROR_AUTHENTICATE);
+        router.push("/auth/signin");
       }
     } else if (error.request) {
       // Xử lý các lỗi từ phía client

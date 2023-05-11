@@ -198,7 +198,7 @@ export default {
       this.model = {};
     },
 
-    async insertOrUpdateCustom(id) {
+    async insertOrUpdateCustom(item) {
       try {
         if (this.$state.form == this.formNameEnum.product) {
           let formData = new FormData();
@@ -213,7 +213,7 @@ export default {
             formData.append("Images[]", this.FileModel.images[index].ImageId);
           }
 
-          formData.append("ObjectId", id);
+          formData.append("ObjectId", item.ProductId);
           const api = new fileApi();
           await api.insertImages(formData);
           this.model.Images = null;

@@ -219,8 +219,6 @@ export default {
   },
   methods: {
     addClass(type,value){
-      // eslint-disable-next-line no-debugger
-      debugger
       if(type == 'paid-type'){
         return value != 0 ? 'paid' : 'unpaid' ;
       }

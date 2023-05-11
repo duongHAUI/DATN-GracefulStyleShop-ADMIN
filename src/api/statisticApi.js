@@ -11,6 +11,12 @@ export class statisticApi {
       console.log(error);
     }
   };
+  SellingProductToMonthNow = (params) => {
+    try {
+      return axiosClient.post("Statistic/SellingProductToMonthNow",params);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
-
 export default statisticApi;
