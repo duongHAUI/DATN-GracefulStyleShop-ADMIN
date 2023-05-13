@@ -133,7 +133,7 @@ export default {
     this.getData();
     this.$state.title = this.data.titleForm;
     this.$state.tableName = this.data.tableName;
-    if(!this.$state.user.IsBoss && this.$route.path == '/admins'){
+    if(!this.$state.user?.IsBoss && this.$route.path == '/admins'){
       this.$router.push("/");
     }
   },

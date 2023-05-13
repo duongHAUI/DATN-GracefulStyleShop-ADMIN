@@ -69,11 +69,9 @@ axiosClient.interceptors.response.use(
     // throw error;
   }
 );
-
 const toastMessage = function (msg){
   state.state.toastMessage.unshift(
     resources.vi.TOAST_MESSAGE.ERROR(msg)
   );
 }
-
 export default axiosClient;

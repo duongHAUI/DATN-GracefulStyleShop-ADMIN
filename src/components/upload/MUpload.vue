@@ -35,7 +35,7 @@ export default {
   },
   components: {},
   created(){
-    this.images = this.dataImages ? this.dataImages : [] ;
+    this.images = this.dataImages && this.dataImages[0] != null ? this.dataImages : [] ;
     this.files = Array(!this.dataImages?.length ? 0 : this.dataImages?.length).fill(false);
   },
   data() {

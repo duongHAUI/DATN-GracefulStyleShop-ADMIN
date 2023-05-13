@@ -59,14 +59,14 @@
       </div>
     </div>
     <div class="home-char">
-      <div class="char-left">
+      <!-- <div class="char-left">
         <VueApexCharts
           width="500"
           type="bar"
           :options="options1"
           :series="series1"
         ></VueApexCharts>
-      </div>
+      </div> -->
       <div class="char-right">
         <VueApexCharts
           width="500"
