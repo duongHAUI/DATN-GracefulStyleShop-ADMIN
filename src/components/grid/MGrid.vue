@@ -3,7 +3,7 @@
     <div class="m-main-content-title">{{getTitle}}</div>
     <div class="m-main-content-btn-add">
       <div @click="onShowForm">
-        <MButton v-if="$state.mode !== enumD.enumMode.view">Thêm</MButton>
+        <MButton v-if="$state.mode !== enumD.enumMode.view && $state.tableName != 'Order'">Thêm</MButton>
       </div>
       <div
         class="m-main-content-btn-import"
@@ -21,7 +21,6 @@
   <div class="m-main-content-table">
     <div class="content-table__btn">
       <div class="content-table-btn__left">
-        
         <div class="flex-center" >
           <FolderRoutes />
         <div
@@ -39,6 +38,7 @@
         </div>
       </div>
       <div class="content-table__btn-right">
+        <m-button @click="isShowMassDiscount = true">Giảm giá hàng loạt</m-button>
         <MInput
           :placeholder="data.placeholder"
           classIcon="icon-search"
@@ -102,6 +102,7 @@
       </template>
     </MPopUpWarn>
   </div>
+  <MassDiscountPopup @close="isShowMassDiscount = false" :isShow="isShowMassDiscount" />
 </template>
 <script>
 import constants from "@/assets/js/constants";
@@ -114,6 +115,7 @@ import baseApi from "@/api/baseApi";
 import MPopUpWarn from "../pop-up/MPopUpWarn.vue";
 import FolderRoutes from '../folder/FolderRoutes.vue';
 import enumD from "@/assets/js/enum";
+import MassDiscountPopup from '../product/MassDiscountPopup.vue';
 export default {
   name: "MGrid",
   components: {
@@ -123,7 +125,8 @@ export default {
     MPaginate,
     MCombobox,
     MPopUpWarn,
-    FolderRoutes
+    FolderRoutes,
+    MassDiscountPopup
   },
   props: {
     data: Object,
@@ -148,7 +151,8 @@ export default {
       isShowActionprocessMutiple: false,
       rowsSelected: [],
       isPopUpDelete: false,
-      enumD :enumD
+      enumD :enumD,
+      isShowMassDiscount : false,
     };
   },
   methods: {

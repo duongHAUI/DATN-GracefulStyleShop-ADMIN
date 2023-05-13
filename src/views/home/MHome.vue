@@ -59,14 +59,14 @@
       </div>
     </div>
     <div class="home-char">
-      <!-- <div class="char-left">
+      <div class="char-left">
         <VueApexCharts
           width="500"
           type="bar"
           :options="options1"
           :series="series1"
         ></VueApexCharts>
-      </div> -->
+      </div>
       <div class="char-right">
         <VueApexCharts
           width="500"
@@ -77,16 +77,72 @@
       </div>
       <div></div>
     </div>
-    <!-- Đơn hàng -->
+    <h2 class="title-order-home">Đơn hàng mới nhất</h2>
+    <div class="m__e-fixed-table">
+    <table class="m__e-table">
+      <tr class="m__e-table-row">
+        <MTableColumn tag="th" minWidth="100px" maxWidth="150px"
+          >MÃ ĐƠN HÀNG</MTableColumn
+        >
+        <MTableColumn tag="th" minWidth="250px" maxWidth="250px"
+          >TÊN KHÁCH HÀNG</MTableColumn
+        >
+        <MTableColumn tag="th" minWidth="100px" maxWidth="100px"
+          >TỔNG TIỀN</MTableColumn
+        >
+        <MTableColumn
+          tag="th"
+          minWidth="150px"
+          textAlign="center"
+          maxWidth="150px"
+          >TRẠNG THÁI THANH TOÁN</MTableColumn
+        >
+        <MTableColumn
+          tag="th"
+          minWidth="200px"
+          dataTip="Số chứng minh nhân dân"
+          maxWidth="200px"
+          >TRẠNG THÁI ĐƠN HÀNG</MTableColumn
+        >
+        <MTableColumn tag="th" minWidth="150px" maxWidth="150px"
+          >NGÀY TẠO</MTableColumn
+        >
+      </tr>
+      <tr
+        class="m__e-table-row"
+        v-for="item in orders"
+        :key="item.OrderId"
+      >
+        <MTableColumn>{{ item.OrderCode }}</MTableColumn>
+        <MTableColumn  :dataTip="item.FullName" >{{ item.FullName }}</MTableColumn>
+        <MTableColumn>{{
+         $state.formatPrice(item.TotalPrice)
+        }}</MTableColumn>
+        <MTableColumn textAlign="center">{{
+          item.IsPaid
+        }}</MTableColumn>
+        <MTableColumn>{{ item.Status }}</MTableColumn>
+        <MTableColumn>{{ formatDate(item.CreatedAt)}}</MTableColumn>
+      </tr>
+    </table>
+    <div class="m__e-list-empty" v-if="isShowImgNoData">
+      <img src="@/assets/img/bg_report_nodata.76e50bd8.svg" alt="Không có dữ liệu">
+      <span>Không có dữ liệu</span>
+    </div>
+  </div>
   </div>
 </template>
 <script>
 import VueApexCharts from "vue3-apexcharts";
 import statisticApi from "@/api/statisticApi";
+import MTableColumn from '@/components/table-column/MTableColumn.vue';
+import baseApi from '@/api/baseApi';
+import common from '@/assets/js/common';
 export default {
   name: "MHome",
   components: {
     VueApexCharts,
+    MTableColumn,
   },
   created: async function () {
     this.$state.nameTable = "Home";
@@ -97,8 +153,6 @@ export default {
       Year: new Date().getFullYear(),
       Month: new Date().getMonth() + 1,
     });
-    // eslint-disable-next-line no-debugger
-    debugger
     res.forEach((product) => {
       this.options2.labels.push(product.ProductName);
     });
@@ -107,9 +161,13 @@ export default {
       const percentage = (product.totalQuantity / totalQuantity) * 100;
       this.series2.push(percentage);
     });
+
+    res = await new baseApi("Order").getByFilter({});
+    this.orders = res.Data;
   },
   data: function () {
     return {
+      orders :[],
       statisticDefault: {},
       options1: {
         chart: {
@@ -153,6 +211,14 @@ export default {
           width: 400,
           type: "donut",
         },
+        title: {
+          text: "Top 5 sản phẩm bán chạy",
+          floating: true,
+          align: "center",
+          style: {
+            color: "#444",
+          },
+        },
         labels: [],
         responsive: [
           {
@@ -170,21 +236,37 @@ export default {
       },
     };
   },
+  methods:{
+    formatDate(date){
+      return common.formatDate(date);
+    }
+  }
 };
 </script>
 <style scoped>
-.m-main-content {
-  background-color: rgba(117, 251, 206, 0.436) !important;
+@import url(./home.css);
+.m-main-content{
+}
+.home{
+  height: 100%;
+  overflow: auto !important;
+  width: 100%;
+  overflow-x: none ;
 }
 .home-char {
   margin-top: 24px;
   width: 100%;
 }
-.char-right{
-  flex: 1
+.char-right {
+  flex: 1;
 }
-.char-left{
-  flex: 1
+.char-left {
+  flex: 1;
 }
-@import url(./home.css);
+.title-order-home{
+  margin: 12px 0;
+}
+.apx-legend-position-right{
+  margin-top: 12px;
+}
 </style>
