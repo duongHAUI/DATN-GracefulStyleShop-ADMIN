@@ -83,7 +83,7 @@
           @dblclick="row.IsActive && updateRows(row[`${tableName}Id`])"
           :className="row.IsActive == false ? 'locked-row' : ''"
         >
-          <status-order v-model="row[column.name]" :orderId="row.OrderId" propValue="Status" propName="Title" v-if="column.type == 'StatusOrder'" />
+          <status-order v-model="row[column.name]" :isPaid="row.IsPaid" :orderId="row.OrderId" propValue="Status" propName="Title" v-if="column.type == 'StatusOrder'" />
           <div :class="addClass(column.type,row[column.name])" v-else>
             {{ formatColumn(column, row[column.name]) }}
           </div>

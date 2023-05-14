@@ -36,7 +36,7 @@
           @mousedown="itemSelected(item, index)"
         >
           <div style="display: flex">
-            <div class="m-combobox-item-name">{{ item[propName] }}</div>
+             <div class="m-combobox-item-name" v-if="!isPaid || ( isPaid && item[propValue] != 6)">{{ item[propName] }}</div>
           </div>
         </li>
       </div>
@@ -46,7 +46,7 @@
 <script>
 import enumD from "@/assets/js/enum";
 import orderApi from "@/api/orderApi";
-
+import resources from '@/assets/js/resource';
 export default {
   name: "StatusOrder",
   emits: ["update:modelValue", "message-error-input"],
@@ -83,6 +83,7 @@ export default {
       default: "icon-drop",
     },
     orderId: String,
+    isPaid : Boolean
   },
   data() {
     return {
@@ -153,6 +154,9 @@ export default {
         Status: item[this.propValue],
         OrderId: this.orderId,
       });
+       this.$state.addToastMessage(this,
+            resources.vi.TOAST_MESSAGE.SUCCESS("Thay đổi trạng thái ")
+          );
       if (res) {
         this.textSelected = item[this.propName];
         this.textItemSelected = item[this.propName];

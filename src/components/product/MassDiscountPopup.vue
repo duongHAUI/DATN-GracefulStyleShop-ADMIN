@@ -68,6 +68,7 @@ import baseApi from "@/api/baseApi";
 import MButton from "../button/MButton.vue";
 import MCheckBox from "../checkbox/MCheckBox.vue";
 import productApi from "@/api/productApi";
+import resources from '@/assets/js/resource';
 export default {
   props: {
     isShow: Boolean,
@@ -147,6 +148,7 @@ export default {
     },
     async submitMassDiscount() {
       try {
+         this.$state.isMask();
         const res = await new productApi().MassDiscount({
           Brands: this.brandSelected,
           Types: this.typeSelected,
@@ -154,9 +156,17 @@ export default {
         });
         if (res) {
           this.$emit("close");
+          this.$state.unMask();
+           this.$state.addToastMessage(this,
+            resources.vi.TOAST_MESSAGE.SUCCESS("Giảm giá hàng loạt ")
+          );
         }
       } catch (error) {
+        this.$state.unMask();
         console.log(error);
+        this.$state.addToastMessage(this,
+            resources.vi.TOAST_MESSAGE.SUCCESS("Lỗi vui lòng thử lại.")
+          );
       }
     },
   },

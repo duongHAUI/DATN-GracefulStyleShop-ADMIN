@@ -38,7 +38,9 @@
         </div>
       </div>
       <div class="content-table__btn-right">
-        <m-button @click="isShowMassDiscount = true">Giảm giá hàng loạt</m-button>
+        <div class="mass-discount-btn" v-if="$state.tableName == 'Product'">
+          <m-button @click="isShowMassDiscount = true">Giảm giá hàng loạt</m-button>
+        </div>
         <MInput
           :placeholder="data.placeholder"
           classIcon="icon-search"
@@ -284,5 +286,8 @@ export default {
 .flex-center{
   display: flex;
   align-items: center;
+}
+.mass-discount-btn{
+  margin-right: 12px;
 }
 </style>
