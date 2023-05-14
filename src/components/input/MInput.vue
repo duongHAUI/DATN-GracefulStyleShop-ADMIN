@@ -30,6 +30,8 @@
         :name="name"
         autocomplete="off"
         :tabindex="tabIndex"
+        :max="maxNumber"
+        :min="minNumber"
       />
       <p class="m-input__error-msg">{{errorMsg}}</p>
       <div
@@ -81,6 +83,8 @@ export default {
       type: Array,
       default : new Array(0)
     },
+    maxNumber : Number,
+    minNumber : Number,
     tabIndex : Number
   },
   methods: {

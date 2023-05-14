@@ -9,20 +9,21 @@ class typeConfig {
                 name : "TypeCode",
                 title : "Mã thể loại",
                 textAlign : "left",
-                width : 150,
+                width : 120,
             },
             {
                 name :"TypeName",
                 title : "Tên thể loại",
                 textAlign : "left",
-                width : 150,
+                width : 300,
             },
             {
                 name :"Description",
                 title : "Mô tả",
                 textAlign : "left",
-                width : 150,
+                width : 800,
             },
+            
         ];
         this.placeholder = "Tìm kiếm ";
     }

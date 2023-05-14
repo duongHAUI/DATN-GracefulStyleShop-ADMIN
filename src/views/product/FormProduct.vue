@@ -24,10 +24,17 @@
               @message-error-input="handleBindMessageInput" />
           </div>
           <div class="form__row f-bw" style="width: 48%">
-            <MInput textField="Giảm giá" v-model="formData.Discount" :required="true" name="Discount" ref="Discount"
+            <MInput textField="Giảm giá %" v-model="formData.Discount" :required="true" name="Discount" ref="Discount"
               type="number" :tabIndex="4" :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|100`]"
+              :maxNumber="100" :minNumber="0"
               :errorMsg="errorMsgObject?.Discount" @message-error-input="handleBindMessageInput" />
           </div>
+        </div>
+        <div class="form__row f-bw" style="width: 100%">
+            <MInput textField="Giảm bán khi giảm"  v-model="priceDel" :required="true" name="priceDel" ref="priceDel"
+              type="number" :tabIndex="4" :rules="[rules.NOT_EMPTY, `${rules.MAX_LENGTH}|100`]" 
+              :isReadonly="true"
+              :errorMsg="errorMsgObject?.Discount" @message-error-input="handleBindMessageInput" />
         </div>
         <div class="form__row" style="width: 100%">
           <div class="form__row f-bw" style="width: 48%">
@@ -86,6 +93,7 @@ export default {
       listBrand: [],
       listType: [],
       api: baseApi,
+      priceDel : 0
     };
   },
   methods: {
@@ -95,6 +103,14 @@ export default {
       return res.Data;
     },
   },
+  watch:{
+    'modelValue.Discount': function(){
+        this.priceDel = Math.floor(this.modelValue.PriceSale -  this.modelValue.PriceSale * (this.modelValue.Discount*0.01));
+    },
+    'modelValue.PriceSale': function(){
+        this.priceDel = Math.floor(this.modelValue.PriceSale -  this.modelValue.PriceSale * (this.modelValue.Discount*0.01));
+    }
+  }
 };
 </script>
 <style scoped>

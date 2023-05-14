@@ -37,7 +37,7 @@
 }
 .m-menu__list-item{
     display: flex;
-    padding: 10px 0;
+    padding: 10px 8px 10px 0;
     cursor: pointer;
     /* transition: 0.3s ease-in; */
     user-select: none;
@@ -54,8 +54,9 @@
     filter:unset;
 }
 .m-menu__list-item-title{
-    padding-left: 16px;
+    padding-left: 8px;
     color: white;
+    font-size: 12px;
     /* transition: 0.5s linear; */
 }
 .m-menu__list-item-title a{

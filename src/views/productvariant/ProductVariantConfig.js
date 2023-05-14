@@ -10,7 +10,7 @@ class productvariantConfig {
             {
                 name : "Quantity",
                 title : "Số lượng",
-                textAlign : "left",
+                textAlign : "right",
                 type : "text",
                 width : 150,
             },
@@ -22,12 +22,34 @@ class productvariantConfig {
                 width : 150,
             },
             {
-                name : "SizeCode",
-                title : "Kích thước",
-                textAlign : "left",
+                name : "SizeNumber",
+                title : "Kích cỡ",
+                textAlign : "right",
                 type : "number",
                 width : 150,
             },
+            {
+                name : "CreatedAt",
+                title : "Thời gian tạo",
+                textAlign : "center",
+                type : "date",
+                width : 150,
+            },
+            {
+                name : "ModifiedAt",
+                title : "Thời gian sửa",
+                textAlign : "center",
+                type : "date",
+                width : 150,
+            },
+            {
+                name : " ",
+                title : " ",
+                textAlign : "center",
+                type : "text",
+                width : 400,
+            },
+            
         ];
         this.placeholder = "Tìm kiếm ";
     }

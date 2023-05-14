@@ -18,5 +18,13 @@ export class statisticApi {
       console.log(error);
     }
   };
+
+  StatisticRevenue = (params) => {
+    try {
+      return axiosClient.post("Statistic/StatisticRevenue",params);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 export default statisticApi;

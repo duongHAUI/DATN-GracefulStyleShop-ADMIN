@@ -119,9 +119,9 @@
          $state.formatPrice(item.TotalPrice)
         }}</MTableColumn>
         <MTableColumn textAlign="center">{{
-          item.IsPaid
+          item.IsPaid = 1 ? 'Đã thanh toán' : "Chưa thanh toán"
         }}</MTableColumn>
-        <MTableColumn>{{ item.Status }}</MTableColumn>
+        <MTableColumn>{{ getTitleStatusOrder(item.Status) }}</MTableColumn>
         <MTableColumn>{{ formatDate(item.CreatedAt)}}</MTableColumn>
       </tr>
     </table>
@@ -138,6 +138,7 @@ import statisticApi from "@/api/statisticApi";
 import MTableColumn from '@/components/table-column/MTableColumn.vue';
 import baseApi from '@/api/baseApi';
 import common from '@/assets/js/common';
+import enumD from '@/assets/js/enum';
 export default {
   name: "MHome",
   components: {
@@ -161,8 +162,20 @@ export default {
       const percentage = (product.totalQuantity / totalQuantity) * 100;
       this.series2.push(percentage);
     });
+    // Doanh thu
+    res = await new statisticApi().StatisticRevenue({
+      Year: new Date().getFullYear(),
+    });
 
-    res = await new baseApi("Order").getByFilter({});
+    res.forEach((item) => {
+      this.options1.xaxis.categories.push(item.MonthTitle);
+    });
+
+    res.forEach((item) => {
+      this.series1[0].data.push(item.TotalPrice);
+    });
+
+    res = await new baseApi("Order").getByFilter({PageSize : 10});
     this.orders = res.Data;
   },
   data: function () {
@@ -174,20 +187,7 @@ export default {
           id: "vuechart-example",
         },
         xaxis: {
-          categories: [
-            "T1",
-            "T2",
-            "T3",
-            "T4",
-            "T5",
-            "T6",
-            "T7",
-            "T8",
-            "T9",
-            "T10",
-            "T11",
-            "T12",
-          ],
+          categories: [],
         },
         title: {
           text: "Doanh thu theo năm",
@@ -201,7 +201,7 @@ export default {
       series1: [
         {
           name: "Doanh thu",
-          data: [30, 40, 45, 50, 49, 60, 70, 91, 12, 12, 34, 66],
+          data: [],
         },
       ],
 
@@ -239,7 +239,25 @@ export default {
   methods:{
     formatDate(date){
       return common.formatDate(date);
+    },
+    getTitleStatusOrder(status) {
+    switch (status) {
+      case enumD.enumStatusOrder.ChoXacNhan:
+        return "Chờ xác nhận";
+      case enumD.enumStatusOrder.DaXacNhan:
+        return "Chờ lấy hàng";
+      case enumD.enumStatusOrder.DangGiao:
+        return "Đang giao";
+      case enumD.enumStatusOrder.DaNhanHang:
+        return "Đã nhận hàng";
+      case enumD.enumStatusOrder.HoanThanh:
+        return "Hoàn thành";
+      case enumD.enumStatusOrder.DaHuy:
+        return "Đã hủy";
+      case enumD.enumStatusOrder.TraHang:
+        return "Trả hàng";
     }
+  },
   }
 };
 </script>

@@ -4,28 +4,30 @@ class customerConfig {
         this.tableName = 'Customer';
         this.titleForm = "Khách hàng";
         this.formName = enumD.formName.customer;
-        this.mode  = enumD.enumMode.view;
+        this.mode = enumD.enumMode.view;
+        this.lock = enumD.enumLock.notAllowLock;
+        this.delete = enumD.enumDelete.notAllowDelete;
         this.columns = [
             {
-                name : "CustomerName",
+                name : "FullName",
                 title : "Tên khách hàng",
                 textAlign : "left",
                 type : "text",
-                width : 150,
+                width : 300,
             },
             {
                 name : "Email",
                 title : "Email",
                 textAlign : "left",
                 type : "text",
-                width : 150,
+                width : 300,
             },
             {
                 name : "Phone",
                 title : "Số điện thoại",
                 textAlign : "right",
                 type : "number",
-                width : 150,
+                width : 100,
             },
             {
                 name : "CreatedAt",

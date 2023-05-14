@@ -13,28 +13,28 @@ class supplyConfig {
                 title : "Mã sản phẩm",
                 textAlign : "left",
                 type : "text",
-                width : 150,
+                width : 120,
             },
             {
                 name : "ProductName",
                 title : "Tên sản phẩm",
                 textAlign : "left",
                 type : "text",
-                width : 150,
+                width : 500,
             },
             {
                 name : "SizeCode",
                 title : "Kích cỡ",
                 textAlign : "left",
                 type : "text",
-                width : 150,
+                width : 100,
             },
             {
                 name : "ColorName",
                 title : "Màu sắc",
                 textAlign : "left",
                 type : "text",
-                width : 150,
+                width : 100,
             },
             {
                 name : "SupplyDate",
@@ -48,13 +48,13 @@ class supplyConfig {
                 title : "Số lượng nhập",
                 textAlign : "right",
                 type : "number",
-                width : 150,
+                width : 110,
             },
             {
                 name : "PriceSupply",
                 title : "Giá nhập",
                 textAlign : "right",
-                type : "number",
+                type : "Price",
                 width : 100,
             },
             {
@@ -62,7 +62,7 @@ class supplyConfig {
                 title : "Nhà cung cấp",
                 textAlign : "left",
                 type : "text",
-                width : 150,
+                width : 400,
             },
         ];
         this.placeholder = "Tìm kiếm ";

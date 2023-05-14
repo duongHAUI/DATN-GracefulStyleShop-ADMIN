@@ -5,73 +5,73 @@ const constants = {
   SidebarMenu: [
     {
       text: "Trang chủ",
-      classIcon: "icon-cash",
+      classIcon: "icon-home",
       path : "/",
       name:"Home"
     },
     {
-      text: "Sản phẩm",
-      classIcon: "icon-overview",
+      text: "Quản lý sản phẩm",
+      classIcon: "icon-product",
       path : "/products",
       name:"Product"
     },
     {
-      text: "Màu",
-      classIcon: "icon-cash",
+      text: "Quản lý màu sắc",
+      classIcon: "icon-overview",
       path : "/colors",
       name:"Color"
     },
     {
-      text: "Kích cỡ",
-      classIcon: "icon-cash",
-      path : "/sizes",
-      name:"Size"
-    },
-    {
-      text: "Thương hiệu",
-      classIcon: "icon-cash",
-      path : "/brands",
-      name:"Brand"
-    },
-    {
-      text: "Thể loại",
+      text: "Quản lý loại sản phẩm",
       classIcon: "icon-cash",
       path : "/types",
       name:"Type"
     },
     {
-      text: "Nhà cung cấp",
-      classIcon: "icon-cash",
-      path : "/suppliers",
-      name:"Supplier"
+      text: "Quản lý kích cỡ",
+      classIcon: "icon-size",
+      path : "/sizes",
+      name:"Size"
     },
     {
-      text: "Phương thức giao hàng",
+      text: "Quản lý thương hiệu",
       classIcon: "icon-cash",
-      path : "/shipments",
-      name:"Shipment"
+      path : "/brands",
+      name:"Brand"
     },
     {
-      text: "Khách hàng",
-      classIcon: "icon-cash",
+      text: "Quản lý tài khoản khách hàng",
+      classIcon: "icon-customer",
       path : "/customers",
       name:"Customer"
     },
     {
-      text: "Quản trị viên",
-      classIcon: "icon-cash",
+      text: "Quản lý nhà cung cấp",
+      classIcon: "icon-supplier",
+      path : "/suppliers",
+      name:"Supplier"
+    },
+    {
+      text: "Quản lý phương thức giao hàng",
+      classIcon: "icon-supplier",
+      path : "/shipments",
+      name:"Shipment"
+    },
+    {
+      text: "Quản lý tài khoản quản trị",
+      classIcon: "icon-admin",
       path : "/admins",
       name:"Admin"
     },
     {
       text: "Thông tin nhập hàng",
-      classIcon: "icon-cash",
+      classIcon: "icon-supply",
       path : "/supplys",
       name:"Supply"
     },
     {
       text: "Quản lý đơn hàng",
-      classIcon: "icon-cash",
+      classIcon: "icon-order",
       path : "/orders",
       name:"Order"
     },

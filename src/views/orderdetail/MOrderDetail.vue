@@ -7,43 +7,42 @@
     <div class="paid">{{getStatusPaid(order.IsPaid)}}</div> 
     <ul class="progressbar">
       <div class="step">
-        <div class="step-icon" :class="{active: setActiveStep(1)}" >
-          <div><i class="fa-solid fa-receipt"></i></div>
+        <div class="step-icon" :class="{ active: setActiveStep(1) }">
+          <div><i class="fa-solid fa-paper-plane"></i></div>
         </div>
         <div class="step-title">Chờ xác nhận</div>
-        <div class="hr-step" :class="{active : setActiveHrProcess(1)}"></div>
+        <div class="hr-step" :class="{ active: setActiveHrProcess(1) }"></div>
       </div>
       <div class="step">
-        <div class="step-icon"  :class="{active: setActiveStep(2)}">
-          <div><i class="fa-solid fa-receipt"></i></div>
+        <div class="step-icon" :class="{ active: setActiveStep(2) }">
+          <div><i class="fa-solid fa-square-check"></i></div>
         </div>
         <div class="step-title">Đã xác nhận</div>
-        <div class="hr-step" :class="{active : setActiveHrProcess(2)}"></div>
+        <div class="hr-step" :class="{ active: setActiveHrProcess(2) }"></div>
       </div>
       <div class="step">
-        <div class="step-icon"  :class="{active: setActiveStep(3)}">
-          <div><i class="fa-solid fa-receipt"></i></div>
+        <div class="step-icon" :class="{ active: setActiveStep(3) }">
+          <div><i class="fa-solid fa-truck-fast"></i></div>
         </div>
         <div class="step-title">Đang giao</div>
-        <div class="hr-step" :class="{active : setActiveHrProcess(3)}"></div>
+        <div class="hr-step" :class="{ active: setActiveHrProcess(3) }"></div>
       </div>
       <div class="step">
-        <div class="step-icon"  :class="{active: setActiveStep(4)}">
-          <div><i class="fa-solid fa-receipt"></i></div>
+        <div class="step-icon" :class="{ active: setActiveStep(4) }">
+          <div><i class="fa-solid fa-download"></i></div>
         </div>
         <div class="step-title">Đã nhận hàng</div>
-        <div class="hr-step" :class="{active : setActiveHrProcess(4)}"></div>
+        <div class="hr-step" :class="{ active: setActiveHrProcess(4) }"></div>
       </div>
       <div class="step" v-if="order.Status == status.DaHuy">
-        <div class="step-icon" :class="{active: setActiveStep(5)}">
-          <div><i class="fa-solid fa-receipt"></i></div>
+        <div class="step-icon" :class="{ active: setActiveStep(5) }">
+          <div><i class="fa-solid fa-rectangle-xmark"></i></div>
         </div>
         <div class="step-title">Đã hủy</div>
-        <div class="hr-step" :class="{active : setActiveHrProcess(5)}"></div>
       </div>
-      <div class="step">
-        <div class="step-icon"  :class="{active: setActiveStep(6)}">
-          <div><i class="fa-solid fa-receipt"></i></div>
+      <div class="step" v-if="order.Status != 6">
+        <div class="step-icon" :class="{ active: setActiveStep(6) }">
+          <div><i class="fa-solid fa-thumbs-up"></i></div>
         </div>
         <div class="step-title">Hoàn thành</div>
       </div>
@@ -56,6 +55,12 @@
         <div>{{order.Phone}}</div>
         <div>
           {{order.AddressDetail}}
+        </div>
+        <div v-if="order.Status == 6" :style="{fontWeight: 'bold'}">
+          Lí do hủy : {{ order.CancelReason }}
+        </div>
+        <div v-if="order.Note" :style="{fontWeight: 'bold'}">
+          Lưu ý : {{ order.Note }}
         </div>
       </div>
       <div class="info-product">
@@ -290,9 +295,12 @@ export default {
 }
 .step-icon div{
     font-size: 20px;
-    color: #2dc258;
+    color: #393b3a;
     background-color: white;
     z-index: 1;
+}
+.step-icon.active div{
+    color: #2dc258;
 }
 .DM1xQK{
     height: 0.1875rem;
@@ -309,9 +317,8 @@ export default {
 }
 .order-method{
     background-color: white;
-    padding: 0 24px;
-}
-.info-address{
+    padding: 8px 24px;
+}.info-address{
     flex-basis: 30%;
     padding: 0 24px;
     border-right: 1px solid #ccc9c9;
@@ -323,20 +330,23 @@ export default {
     line-height: 24px;
 }
 .info-address h6{
+  margin-top: 8px;
     max-width: 100%;
     overflow: hidden;
+    font-size: 14px;
     text-overflow: ellipsis;
     color: rgba(0,0,0,.8);
-    font-size: 14px;
 }
 .info-address div{
     color: rgba(0,0,0,.54);
-    font-size: 14px;
+    font-size: 12px;
     white-space: pre-line;
+    padding: 4px 0;
 }
 .info-product{
     flex-basis: 70%;
-    padding:0 24px;
+    padding:8px 24px;
+    font-size: 13px;
 }
 .CxyZBG.active{
     color: #ee4d2d;
