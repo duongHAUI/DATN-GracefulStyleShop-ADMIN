@@ -5,7 +5,7 @@
         <MTableColumn
           tag="th"
           className="col-fixed-left"
-          v-if="$state.delete !== enumD.enumDelete.notAllowDelete"
+          v-if="$state.delete !== enumD.enumDelete.notAllowDelete && $state.tableName != 'Order'"
         >
           <MCheckBox
             id="check-all"
@@ -51,7 +51,7 @@
       >
         <MTableColumn
           className="col-fixed-left"
-          v-if="$state.delete !== enumD.enumDelete.notAllowDelete"
+          v-if="$state.delete !== enumD.enumDelete.notAllowDelete && $state.tableName != 'Order'"
         >
           <MCheckBox
             :id="row[`${tableName}Id`]"

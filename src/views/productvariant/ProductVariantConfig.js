@@ -22,10 +22,10 @@ class productvariantConfig {
                 width : 150,
             },
             {
-                name : "SizeNumber",
+                name : "SizeCode",
                 title : "Kích cỡ",
-                textAlign : "right",
-                type : "number",
+                textAlign : "left",
+                type : "text",
                 width : 150,
             },
             {
@@ -41,13 +41,6 @@ class productvariantConfig {
                 textAlign : "center",
                 type : "date",
                 width : 150,
-            },
-            {
-                name : " ",
-                title : " ",
-                textAlign : "center",
-                type : "text",
-                width : 400,
             },
             
         ];

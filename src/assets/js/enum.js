@@ -157,8 +157,8 @@ const enumD = {
     TraHang : 7
   },
   paymentMethod :{
-    TTKLH : 1 , // thanh toán khi lấy hàng,
-    ONLINE : 2, //Thẻ ATM 
+    TTKLH : 0 , // thanh toán khi lấy hàng,
+    ONLINE : 1, //Thẻ ATM 
   },
 };
 export default enumD;

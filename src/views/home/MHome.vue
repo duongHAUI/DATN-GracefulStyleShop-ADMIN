@@ -92,15 +92,13 @@
         >
         <MTableColumn
           tag="th"
-          minWidth="150px"
-          textAlign="center"
-          maxWidth="150px"
+          minWidth="200px"
+          textAlign="left"
           >TRẠNG THÁI THANH TOÁN</MTableColumn
         >
         <MTableColumn
           tag="th"
           minWidth="200px"
-          dataTip="Số chứng minh nhân dân"
           maxWidth="200px"
           >TRẠNG THÁI ĐƠN HÀNG</MTableColumn
         >
@@ -118,8 +116,8 @@
         <MTableColumn>{{
          $state.formatPrice(item.TotalPrice)
         }}</MTableColumn>
-        <MTableColumn textAlign="center">{{
-          item.IsPaid = 1 ? 'Đã thanh toán' : "Chưa thanh toán"
+        <MTableColumn textAlign="left">{{
+          item.IsPaid? 'Đã thanh toán' : "Chưa thanh toán"
         }}</MTableColumn>
         <MTableColumn>{{ getTitleStatusOrder(item.Status) }}</MTableColumn>
         <MTableColumn>{{ formatDate(item.CreatedAt)}}</MTableColumn>
@@ -208,7 +206,7 @@ export default {
       series2: [],
       options2: {
         chart: {
-          width: 400,
+          width: 300,
           type: "donut",
         },
         title: {
@@ -225,7 +223,7 @@ export default {
             breakpoint: 2000,
             options: {
               chart: {
-                width: 600,
+                width: 550,
               },
               legend: {
                 position: "right",

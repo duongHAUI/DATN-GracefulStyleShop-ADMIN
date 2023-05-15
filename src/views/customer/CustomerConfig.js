@@ -5,7 +5,6 @@ class customerConfig {
         this.titleForm = "Khách hàng";
         this.formName = enumD.formName.customer;
         this.mode = enumD.enumMode.view;
-        this.lock = enumD.enumLock.notAllowLock;
         this.delete = enumD.enumDelete.notAllowDelete;
         this.columns = [
             {

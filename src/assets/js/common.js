@@ -68,8 +68,8 @@ const common = {
     switch (status) {
       case enumD.enumStatusOrder.ChoXacNhan:
         return "Chờ xác nhận";
-      case enumD.enumStatusOrder.ChoLayHang:
-        return "Chờ lấy hàng";
+      case enumD.enumStatusOrder.DaXacNhan:
+        return "Đã xác nhận";
       case enumD.enumStatusOrder.DangGiao:
         return "Đang giao";
       case enumD.enumStatusOrder.DaNhanHang:

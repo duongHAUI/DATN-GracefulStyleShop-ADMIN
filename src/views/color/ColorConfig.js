@@ -8,14 +8,14 @@ class colorConfig {
             {
                 name : "ColorCode",
                 title : "Mã màu",
-                textAlign : "center",
+                textAlign : "left",
                 width : 100,
             },
             {
                 name :"ColorName",
                 title : "Tên màu",
                 textAlign : "left",
-                width : 1000,
+                width : 200,
             },
         ];
         this.placeholder = "Tìm kiếm theo màu";
